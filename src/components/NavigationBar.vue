@@ -1,8 +1,10 @@
 <template>
     <div>
-        <v-app-bar color="black" dense dark fixed>
+        <v-app-bar dense light fixed>
             <router-link to="/" style="text-decoration: none; color:#FFFFFF;">
-                <v-toolbar-title class="text-center font-weight-black">Conciertos Madrid</v-toolbar-title>
+                <v-avatar :tile="true">
+                    <img src="@/assets/text_logo.png" alt="logo">
+                </v-avatar>
             </router-link>
 
             <v-spacer></v-spacer>

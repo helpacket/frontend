@@ -1,8 +1,17 @@
 <template>
     <div>
-
-        <div class="text-center display-3 font-weight-black pt-10 pb-5">Concieros Madrid</div>
-        <div class="text-center headline font-weight-regular pb-5">Los mejores conciertos por todo Madrid</div>
+        <v-container>
+            <v-row>
+                <v-col align="center">
+                    <v-img src="@/assets/main_logo.png" height="400px" width="400px"></v-img>
+                </v-col>
+            </v-row>
+            <v-row>
+                <v-col align="center">
+                    <div class="text-center headline font-weight-regular pb-5">Plataforma colaborativa contra el coronavirus</div>
+                </v-col>
+            </v-row>
+        </v-container>
 
         <div v-if="$apollo.loading">
             <v-container fluid class="px-5">

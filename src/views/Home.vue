@@ -25,17 +25,22 @@
                     </v-btn>
                 </v-col>
                 <v-col>
-                    <v-btn
-                            align="left"
-                            :loading="loading3"
-                            :disabled="loading3"
-                            color="blue-grey"
-                            class="ma-2 white--text"
-                            @click="loader = 'loading3'"
+                    <router-link
+                        to='/request_form'
+                        tag="v-btn"
                     >
-                        Quiero mascarillas
-                        <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
-                    </v-btn>
+                        <v-btn
+                                align="left"
+                                :loading="loading3"
+                                :disabled="loading3"
+                                color="blue-grey"
+                                class="ma-2 white--text"
+                                @click="loader = 'loading3'"
+                        >
+                            Quiero mascarillas
+                            <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
+                        </v-btn>
+                    </router-link>
                 </v-col>
             </v-row>
         </v-container>

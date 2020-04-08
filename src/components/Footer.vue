@@ -31,7 +31,7 @@
             <v-divider></v-divider>
 
             <v-card-text class="white--text">
-                {{ new Date().getFullYear() }} — <strong>Medicamentos to Guapos</strong>
+                {{ new Date().getFullYear() }} — <strong>Helpacket</strong>
             </v-card-text>
         </v-card>
     </v-footer>

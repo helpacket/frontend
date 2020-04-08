@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
 import ConcertInfo from '../views/ConcertInfo.vue'
 import AllConcerts from '../views/Home.vue'
+import RequestForm from "../views/RequestForm";
 
 Vue.use(VueRouter)
 
@@ -17,7 +18,12 @@ const routes = [
         path: '/concert/:id',
         component: ConcertInfo,
         props: true
+    },
+    {
+        path: '/request_form',
+        component: RequestForm
     }
+
 ]
 
 const router = new VueRouter({

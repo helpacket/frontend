@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 // import Home from '../views/Home.vue'
 import ConcertInfo from '../views/ConcertInfo.vue'
-import AllConcerts from '../views/AllConcerts.vue'
+import AllConcerts from '../views/Home.vue'
 
 Vue.use(VueRouter)
 

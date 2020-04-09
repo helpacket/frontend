@@ -57,6 +57,7 @@
 
 <script>
     import {gql} from "apollo-boost";
+    import { AUTH_TOKEN } from '../constants/settings'
 
     export default {
         name: "Login",
@@ -72,7 +73,7 @@
         },
         methods: {
             submit: function () {
-                let query =  gql`mutation tokenAuth($username: String!, $password: String!) {
+                let query = gql`mutation tokenAuth($username: String!, $password: String!) {
                     tokenAuth(username: $username, password: $password) {
                         token
                     }
@@ -86,10 +87,16 @@
                         username: this.username,
                         password: this.password,
                     },
-                    update: (cache, {data: {tokenAuth}}) => {
-                        window.console.log(tokenAuth.token);
-                    },
+                }).then((result) => {
+                    let token = result.data.tokenAuth.token;
+                    localStorage.setItem(AUTH_TOKEN, token);
+                }).then(() => {
+                    const token = localStorage.getItem(AUTH_TOKEN);
+                    if (token !== undefined) {
+                        this.$router.push('/registered');
+                    }
                 });
+
             },
         }
     }

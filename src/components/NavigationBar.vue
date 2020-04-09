@@ -35,13 +35,30 @@
                     Registrarme
                 </v-btn>
             </router-link>
+            <v-btn
+                    text
+                    v-on:click="logout"
+                    color="blue-grey"
+                    class="ma-2 white--text"
+            >
+                Cerrar Sesión
+            </v-btn>
         </v-app-bar>
     </div>
 </template>
 
 
 <script>
+    import { AUTH_TOKEN } from '../constants/settings'
+
+
     export default {
         name: 'navigationBar',
+        methods: {
+            logout() {
+                localStorage.removeItem(AUTH_TOKEN);
+                this.$router.push('/');
+            }
+        }
     };
 </script>

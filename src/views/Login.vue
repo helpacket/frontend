@@ -57,7 +57,15 @@
 
 <script>
     import {gql} from "apollo-boost";
-    import { AUTH_TOKEN } from '../constants/settings'
+    import {AUTH_TOKEN} from '../constants/settings';
+
+    const LOGIN_QUERY = gql`
+        mutation tokenAuth($username: String!, $password: String!) {
+            tokenAuth(username: $username, password: $password) {
+                token
+            }
+        }
+    `;
 
     export default {
         name: "Login",
@@ -73,14 +81,8 @@
         },
         methods: {
             submit: function () {
-                let query = gql`mutation tokenAuth($username: String!, $password: String!) {
-                    tokenAuth(username: $username, password: $password) {
-                        token
-                    }
-                }`;
-
                 this.$apollo.mutate({
-                    mutation: query,
+                    mutation: LOGIN_QUERY,
                     variables: {
                         username: this.username,
                         password: this.password,

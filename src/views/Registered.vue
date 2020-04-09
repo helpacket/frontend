@@ -12,6 +12,18 @@
 <script>
     import {gql} from "apollo-boost";
 
+    const BANDS_QUERY = gql`
+        query myQuery {
+            bands {
+                edges {
+                    node {
+                        name
+                    }
+                }
+            }
+        }
+    `;
+
     export default {
         name: "Registered",
         data: () => ({
@@ -20,17 +32,7 @@
         ),
         apollo: {
             bands: {
-                query: gql`
-                    query myQuery {
-                        bands {
-                            edges {
-                                node {
-                                    name
-                                }
-                            }
-                        }
-                    }
-                `,
+                query: BANDS_QUERY,
             }
         },
     }

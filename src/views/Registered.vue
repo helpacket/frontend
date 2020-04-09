@@ -21,15 +21,16 @@
         apollo: {
             bands: {
                 query: gql`
-                query myQuery {
-                    bands {
-                        edges {
-                            node {
-                                name
+                    query myQuery {
+                        bands {
+                            edges {
+                                node {
+                                    name
+                                }
                             }
                         }
                     }
-                }`,
+                `,
             }
         },
     }

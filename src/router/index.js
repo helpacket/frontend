@@ -6,6 +6,7 @@ import AllConcerts from '../views/Home.vue'
 import RequestForm from "../views/RequestForm";
 import Login from "../views/Login";
 import Join from "../views/Join";
+import Registered from "../views/Registered"; /* To be removed */
 
 Vue.use(VueRouter);
 
@@ -21,6 +22,10 @@ const routes = [
     {
         path: '/join',
         component: Join
+    },
+    {
+        path: '/registered',
+        component: Registered  /* To be removed */
     },
     {
         path: '/concert/:id',

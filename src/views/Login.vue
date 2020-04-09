@@ -1,24 +1,96 @@
 <template>
-    <v-container>
-        <v-row>
-            <v-col align="center">
-                <h1>Aquí va el login</h1>
+    <v-container
+            class="fill-height"
+            fluid
+    >
+        <v-row
+                align="center"
+                justify="center"
+        >
+            <v-col
+                    cols="12"
+                    sm="8"
+                    md="4"
+            >
+                <v-card class="elevation-12">
+                    <v-form>
+                        <v-toolbar
+                                color="blue-grey"
+                                dark
+                                flat
+                        >
+                            <v-toolbar-title>Inicio de Sesión</v-toolbar-title>
+                        </v-toolbar>
+                        <v-card-text>
+
+                            <v-text-field
+                                    label="Nombre de Usuario"
+                                    name="username"
+                                    type="text"
+                                    v-model="username"
+                            />
+
+                            <v-text-field
+                                    label="Contraseña"
+                                    name="password"
+                                    type="password"
+                                    v-model="password"
+
+                            />
+                        </v-card-text>
+                        <v-card-actions>
+                            <v-spacer/>
+                            <v-btn
+                                    v-on:click="submit"
+                                    color="red darken-4"
+                                    dark
+                            >
+                                Iniciar Sesión
+                            </v-btn>
+                        </v-card-actions>
+                    </v-form>
+                </v-card>
             </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
+    import {gql} from "apollo-boost";
+
     export default {
         name: "Login",
-        data (){
+        data() {
             return {
-                e6: [],
-                e7: [],
-                states: [
-
-                ],
+                username: "",
+                password: "",
+                response: {}
             }
+        },
+        props: {
+            source: String,
+        },
+        methods: {
+            submit: function () {
+                let query =  gql`mutation tokenAuth($username: String!, $password: String!) {
+                    tokenAuth(username: $username, password: $password) {
+                        token
+                    }
+                }`;
+
+                window.console.log(this.username);
+                window.console.log(this.password);
+                this.$apollo.mutate({
+                    mutation: query,
+                    variables: {
+                        username: this.username,
+                        password: this.password,
+                    },
+                    update: (cache, {data: {tokenAuth}}) => {
+                        window.console.log(tokenAuth.token);
+                    },
+                });
+            },
         }
     }
 </script>

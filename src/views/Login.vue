@@ -79,8 +79,6 @@
                     }
                 }`;
 
-                window.console.log(this.username);
-                window.console.log(this.password);
                 this.$apollo.mutate({
                     mutation: query,
                     variables: {

@@ -1,4 +1,4 @@
-# my-app prueba
+# helpacket-frontend
 
 ## Project setup
 ```

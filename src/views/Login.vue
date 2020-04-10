@@ -89,9 +89,12 @@
                 }).then((result) => {
                     let token = result.data.tokenAuth.token;
                     this.$store.commit("setToken", token)
-                    if (token !== undefined) {
-                        this.$router.push('/dev');
+
+                    let destination = this.$route.query.destination
+                    if (destination === undefined) {
+                        destination = '/dev';
                     }
+                    this.$router.push(destination);
                 });
 
             },

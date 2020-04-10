@@ -13,6 +13,7 @@
 
       <div v-if="!isLoggedIn()">
         <router-link
+            v-if="!inLogin()"
             to='/login'
             tag="v-btn"
         >
@@ -25,6 +26,7 @@
           </v-btn>
         </router-link>
         <router-link
+            v-if="!inJoin()"
             to='/join'
             tag="v-btn"
         >
@@ -48,16 +50,14 @@
         </template>
 
         <v-list>
-          <router-link
-              to='/registered'
-              tag="v-btn"
+          <v-list-item
+              v-if="isLoggedIn()"
+              @click="redirectToDev"
           >
-            <v-list-item>
-              <v-list-item-title>
-                DEV
-              </v-list-item-title>
-            </v-list-item>
-          </router-link>
+            <v-list-item-title>
+              DEV
+            </v-list-item-title>
+          </v-list-item>
           <v-list-item
               v-if="isLoggedIn()"
               @click="logout"
@@ -83,6 +83,15 @@
             },
             isLoggedIn() {
                 return this.$store.getters.isLoggedIn;
+            },
+            redirectToDev() {
+                this.$router.push("/dev");
+            },
+            inLogin() {
+                return this.$route.path === "/login"
+            },
+            inJoin() {
+                return this.$route.path === "/join"
             }
         }
     };

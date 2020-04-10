@@ -15,6 +15,13 @@ jobs:
     - name: Install dependencies
       run: |
         yarn install 
-    - name: Run Tests
+    - name: Run Build
       run: |
-        yarn run test
+        yarn run build
+    - name: Validate Build
+      run: |
+        cat dist/index.html > /dev/null
+    - uses: actions/upload-artifact@v1
+      with:
+        name: build
+        path: dist

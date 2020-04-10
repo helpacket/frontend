@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import ConcertInfo from '../views/ConcertInfo.vue'
 import Home from '../views/Home.vue'
 import RequestForm from "../views/RequestForm";
+import TransactionHistory from "../views/TransactionHistory";
 import Login from "../views/Login";
 import Join from "../views/Join";
 import Dev from "../views/Dev"; /* To be removed */
@@ -41,6 +42,13 @@ const routes = [
     {
         path: '/request_form',
         component: RequestForm,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/transaction_history',
+        component: TransactionHistory,
         meta: {
             requiresAuth: true
         }

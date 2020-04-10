@@ -39,6 +39,16 @@
           </v-btn>
         </router-link>
       </div>
+      <div v-else>
+        <v-btn
+            text
+            color="blue-grey"
+            class="ma-2 white--text"
+        >
+          <v-icon left dark>fas fa-user</v-icon>
+          {{ this.humanizedUser() }}
+        </v-btn>
+      </div>
       <v-menu
           left
           bottom
@@ -74,8 +84,22 @@
 
 
 <script>
+    import {USER_QUERY} from "../apis/constants";
+
     export default {
         name: 'navigationBar',
+        data: () => ({
+                people: {}
+            }
+        ),
+        apollo: {
+            people: {
+                query: USER_QUERY,
+                skip () {
+                    return !this.isLoggedIn();
+                },
+            }
+        },
         methods: {
             logout() {
                 this.$store.commit("setToken", null)
@@ -92,6 +116,15 @@
             },
             inJoin() {
                 return this.$route.path === "/join"
+            },
+            humanizedUser() {
+                if (this.people === {}) {
+                    return "";
+                }
+
+                const user = this.people.edges[0].node;
+
+                return `${user.firstName} ${user.lastName}`;
             }
         }
     };

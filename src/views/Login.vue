@@ -1,49 +1,49 @@
 <template>
     <v-container
-            class="fill-height"
-            fluid
+        class="fill-height"
+        fluid
     >
         <v-row
-                align="center"
-                justify="center"
+            align="center"
+            justify="center"
         >
             <v-col
-                    cols="12"
-                    sm="8"
-                    md="4"
+                cols="12"
+                sm="8"
+                md="4"
             >
                 <v-card class="elevation-12">
                     <v-form>
                         <v-toolbar
-                                color="blue-grey"
-                                dark
-                                flat
+                            color="blue-grey"
+                            dark
+                            flat
                         >
                             <v-toolbar-title>Inicio de Sesión</v-toolbar-title>
                         </v-toolbar>
                         <v-card-text>
 
                             <v-text-field
-                                    label="Nombre de Usuario"
-                                    name="username"
-                                    type="text"
-                                    v-model="username"
+                                @keyup.enter="submit"
+                                label="Nombre de Usuario"
+                                name="username"
+                                type="text"
+                                v-model="username"
                             />
-
                             <v-text-field
-                                    label="Contraseña"
-                                    name="password"
-                                    type="password"
-                                    v-model="password"
-
+                                @keyup.enter="submit"
+                                label="Contraseña"
+                                name="password"
+                                type="password"
+                                v-model="password"
                             />
                         </v-card-text>
                         <v-card-actions>
                             <v-spacer/>
                             <v-btn
-                                    v-on:click="submit"
-                                    color="red darken-4"
-                                    dark
+                                v-on:click="submit"
+                                color="red darken-4"
+                                dark
                             >
                                 Iniciar Sesión
                             </v-btn>
@@ -56,15 +56,7 @@
 </template>
 
 <script>
-    import {gql} from "apollo-boost";
-
-    const LOGIN_QUERY = gql`
-        mutation tokenAuth($username: String!, $password: String!) {
-            tokenAuth(username: $username, password: $password) {
-                token
-            }
-        }
-    `;
+    import {LOGIN_QUERY} from "../apis/constants";
 
     export default {
         name: "Login",
@@ -72,11 +64,7 @@
             return {
                 username: "",
                 password: "",
-                response: {}
             }
-        },
-        props: {
-            source: String,
         },
         methods: {
             submit: function () {

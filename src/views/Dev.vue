@@ -10,19 +10,7 @@
 </template>
 
 <script>
-    import {gql} from "apollo-boost";
-
-    const BANDS_QUERY = gql`
-        query myQuery {
-            bands {
-                edges {
-                    node {
-                        name
-                    }
-                }
-            }
-        }
-    `;
+    import {BANDS_QUERY} from "../apis/constants";
 
     export default {
         name: "Dev",

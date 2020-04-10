@@ -12,7 +12,6 @@ export const client = new ApolloClient({
     request: (operation) => {
         if (store.getters.isLoggedIn) {
             const token = store.state["token"];
-            window.console.log(token);
             operation.setContext({
                 headers: {
                     Authorization: "JWT " + token,

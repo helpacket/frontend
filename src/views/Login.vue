@@ -57,7 +57,6 @@
 
 <script>
     import {gql} from "apollo-boost";
-    import {AUTH_TOKEN} from '../constants/settings';
 
     const LOGIN_QUERY = gql`
         mutation tokenAuth($username: String!, $password: String!) {
@@ -89,11 +88,9 @@
                     },
                 }).then((result) => {
                     let token = result.data.tokenAuth.token;
-                    localStorage.setItem(AUTH_TOKEN, token);
-                }).then(() => {
-                    const token = localStorage.getItem(AUTH_TOKEN);
+                    this.$store.commit("setToken", token)
                     if (token !== undefined) {
-                        this.$router.push('/registered');
+                        this.$router.push('/dev');
                     }
                 });
 

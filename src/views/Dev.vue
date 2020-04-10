@@ -2,7 +2,7 @@
     <v-container>
         <v-row>
             <v-col align="center">
-                <h1>Aquí estás registrado</h1>
+                <h1>Development View</h1>
             </v-col>
         </v-row>
         {{ this.bands }}
@@ -25,7 +25,7 @@
     `;
 
     export default {
-        name: "Registered",
+        name: "Dev",
         data: () => ({
                 bands: {}
             }

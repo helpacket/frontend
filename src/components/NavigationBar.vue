@@ -1,20 +1,131 @@
 <template>
-    <div>
-        <v-app-bar dense light fixed>
-            <router-link to="/" style="text-decoration: none; color:#FFFFFF;">
-                <v-avatar :tile="true">
-                    <img src="@/assets/text_logo.png" alt="logo">
-                </v-avatar>
-            </router-link>
+  <div>
+    <v-app-bar dense light fixed>
+      <router-link to="/">
+        <v-avatar>
+          <img src="@/assets/icon_logo.png" alt="logo">
+        </v-avatar>
+      </router-link>
 
-            <v-spacer></v-spacer>
-        </v-app-bar>
-    </div>
+      <v-toolbar-title>Helpacket</v-toolbar-title>
+
+      <v-spacer></v-spacer>
+
+      <div v-if="!isLoggedIn()">
+        <router-link
+            v-if="!inLogin()"
+            to='/login'
+            tag="v-btn"
+        >
+          <v-btn
+              text
+              color="blue-grey"
+              class="ma-2 white--text"
+          >
+            Iniciar Sesión
+          </v-btn>
+        </router-link>
+        <router-link
+            v-if="!inJoin()"
+            to='/join'
+            tag="v-btn"
+        >
+          <v-btn
+              text
+              color="red darken-4"
+              class="ma-2 white--text"
+          >
+            Registrarme
+          </v-btn>
+        </router-link>
+      </div>
+      <div v-else>
+        <v-btn
+            text
+            color="blue-grey"
+            class="ma-2 white--text"
+        >
+          <v-icon left dark>fas fa-user</v-icon>
+          {{ this.humanizedUser() }}
+        </v-btn>
+      </div>
+      <v-menu
+          left
+          bottom
+      >
+        <template v-slot:activator="{ on }">
+          <v-btn icon v-on="on">
+            <v-icon>mdi-dots-vertical</v-icon>
+          </v-btn>
+        </template>
+
+        <v-list>
+          <v-list-item
+              v-if="isLoggedIn()"
+              @click="redirectToDev"
+          >
+            <v-list-item-title>
+              DEV
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item
+              v-if="isLoggedIn()"
+              @click="logout"
+          >
+            <v-list-item-title>
+              Cerrar Sesión
+            </v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </v-menu>
+    </v-app-bar>
+  </div>
 </template>
 
 
 <script>
+    import {USER_QUERY} from "../apis/constants";
+
     export default {
         name: 'navigationBar',
+        data: () => ({
+                people: {}
+            }
+        ),
+        apollo: {
+            people: {
+                query: USER_QUERY,
+                skip () {
+                    return !this.isLoggedIn();
+                },
+            }
+        },
+        methods: {
+            logout() {
+                this.$store.commit("setToken", null)
+                this.$router.push('/');
+            },
+            isLoggedIn() {
+                return this.$store.getters.isLoggedIn;
+            },
+            redirectToDev() {
+                this.$router.push("/dev");
+            },
+            inLogin() {
+                return this.$route.path === "/login"
+            },
+            inJoin() {
+                return this.$route.path === "/join"
+            },
+            humanizedUser() {
+                if (this.people === {}) {
+                    return "";
+                }
+
+                const user = this.people.edges[0].node;
+
+                return `${user.firstName} ${user.lastName}`;
+            }
+        }
     };
 </script>

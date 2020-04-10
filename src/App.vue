@@ -1,19 +1,20 @@
 <template>
-    <v-app style="
-  background: #EFEFEF;">
-        <!-- background: #E0E0E;"> -->
-        <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.x/css/font-awesome.min.css" rel="stylesheet">
-
+    <v-app id="page-container">
         <navigationBar/>
 
-        <div style="padding: 48px 0px 0px;">
+        <div id="content-wrap">
             <router-view></router-view>
         </div>
 
-        <afooter/>
+        <afooter id="footer"/>
 
     </v-app>
 </template>
+
+<style>
+    @import './assets/app.css';
+    @import "https://cdn.jsdelivr.net/npm/font-awesome@4.x/css/font-awesome.min.css";
+</style>
 
 <script>
     import navigationBar from './components/NavigationBar';

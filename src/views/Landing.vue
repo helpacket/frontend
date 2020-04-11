@@ -40,7 +40,7 @@
 
 <script>
     export default {
-        name: "Home",
+        name: "Landing",
         data() {
             return {
                 descriptionMessage: "Plataforma colaborativa contra el coronavirus",

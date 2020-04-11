@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Landing from '../views/Landing.vue'
 import RequestForm from "../views/RequestForm";
 import SupplyForm from "../views/SupplyForm";
 import TransactionHistory from "../views/TransactionHistory";
@@ -16,7 +16,7 @@ Vue.use(VueRouter);
 const routes = [
     {
         path: '/',
-        component: Home
+        component: Landing
     },
     {
         path: '/login',

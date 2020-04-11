@@ -80,7 +80,7 @@
 
                     let destination = this.$route.query.destination
                     if (destination === undefined) {
-                        destination = '/dev';
+                        destination = '/transactions';
                     }
                     this.$router.push(destination);
                 });

@@ -8,6 +8,8 @@ import TransactionHistory from "../views/TransactionHistory";
 import Statistics from "../views/Statistics"
 import Login from "../views/Login";
 import Join from "../views/Join";
+import NotFound from "../views/NotFound"
+
 import Dev from "../views/Dev"; /* To be removed */
 import {store} from "../stores";
 
@@ -69,6 +71,9 @@ const routes = [
             requiresAuth: true
         }
     },
+    {
+        path: "*", component: NotFound,
+    }
 ];
 
 export const router = new VueRouter({

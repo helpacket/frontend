@@ -55,10 +55,10 @@
           text
           color="blue-grey"
           class="ma-2 white--text"
-          @click="goTransactions"
+          @click="goNewRequest"
       >
-        <v-icon left dark>fas fa-user</v-icon>
-        {{ this.humanizedUser() }}
+        Historial
+        <v-icon right dark>fas fa-history</v-icon>
       </v-btn>
       <v-menu
           left
@@ -72,10 +72,18 @@
 
         <v-list>
           <v-list-item
-              v-if="isLoggedIn()"
+              @click="goTransactions"
+          >
+            <v-list-item-title>
+              <v-icon left>fas fa-user-circle</v-icon>
+              {{ this.humanizedUser() }}
+            </v-list-item-title>
+          </v-list-item>
+          <v-list-item
               @click="logout"
           >
             <v-list-item-title>
+              <v-icon left>fas fa-sign-out-alt</v-icon>
               Cerrar Sesión
             </v-list-item-title>
           </v-list-item>

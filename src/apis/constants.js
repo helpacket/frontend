@@ -46,8 +46,8 @@ export const CREATE_REQUEST = gql`
 `;
 
 export const CREATE_SUPPLY = gql`
-    mutation ($input: RequestMutationInput!) {
-        request (input: $input){
+    mutation ($input: SupplyMutationInput!) {
+        supply (input: $input){
             result{
                 id,
                 amount

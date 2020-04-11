@@ -9,7 +9,6 @@ import Login from "../views/Login";
 import Join from "../views/Join";
 import NotFound from "../views/NotFound"
 
-import Dev from "../views/Dev"; /* To be removed */
 import {store} from "../stores";
 
 Vue.use(VueRouter);
@@ -26,13 +25,6 @@ const routes = [
     {
         path: '/join',
         component: Join
-    },
-    {
-        path: '/dev',
-        component: Dev,  /* To be removed */
-        meta: {
-            requiresAuth: true
-        }
     },
     {
         path: '/requests/new',
@@ -80,7 +72,9 @@ router.beforeEach((to, from, next) => {
         && !loggedIn
     ) {
         next({path: "/login", query: {"destination": to.path}})
-    } else if (to.path === "/login" && loggedIn) {
+    } else if (
+        to.path === "/login" && loggedIn
+    ) {
         let destination = to.query.destination
         if (destination === undefined) {
             destination = "/"

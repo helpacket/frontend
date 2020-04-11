@@ -39,7 +39,7 @@
 
 <script>
     export default {
-        name: 'afooter',
+        name: 'HelpacketFooter',
         data: () => ({
             icons: [
                 'fab fa-facebook',

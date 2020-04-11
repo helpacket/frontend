@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
-import vuetify from './plugins/vuetify';
 
+import {vuetify} from './plugins/vuetify';
 import {router} from './routers';
 import {apollo} from "./apis";
 import {store} from "./stores";

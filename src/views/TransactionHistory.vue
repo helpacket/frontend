@@ -1,45 +1,45 @@
 <template>
-    <v-container justify="center">
-        <v-row justify="center">
-            <v-card width="90%" justify="center">
-                <v-card-title class="pb-2">
-                    Historial de transacciones
-                </v-card-title>
-                <v-card-text class="pb-2">
-                    <v-data-table
-                            :headers="headers"
-                            :items="table_content"
-                            :items-per-page="10"
-                    >
-                        <template v-slot:item.icon="{ item }">
-                            <v-icon v-if="item.icon === 'request'" right dark color="red">fas fa-long-arrow-alt-left</v-icon>
-                            <v-icon v-else right dark color="green">fas fa-long-arrow-alt-right</v-icon>
-                        </template>
-                        <template v-slot:item.status="{ item }">
-                            <v-chip :color="STATUS_COLOR[item.status]" dark>{{ STATUS_TEXT[item.status] }}</v-chip>
-                        </template>
-                    </v-data-table>
-                </v-card-text>
-            </v-card>
-        </v-row>
-    </v-container>
+  <v-container justify="center">
+    <v-row justify="center">
+      <v-card width="90%" justify="center">
+        <v-card-title class="pb-2">
+          Historial de transacciones
+        </v-card-title>
+        <v-card-text class="pb-2">
+          <v-data-table
+              :headers="headers"
+              :items="table_content"
+              :items-per-page="10"
+          >
+            <template v-slot:item.icon="{ item }">
+              <v-icon v-if="item.icon === 'request'" right dark color="red">fas fa-long-arrow-alt-left</v-icon>
+              <v-icon v-else right dark color="green">fas fa-long-arrow-alt-right</v-icon>
+            </template>
+            <template v-slot:item.status="{ item }">
+              <v-chip :color="STATUS_COLOR[item.status]" dark>{{ STATUS_TEXT[item.status] }}</v-chip>
+            </template>
+          </v-data-table>
+        </v-card-text>
+      </v-card>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
-    import {gql} from "apollo-boost";
+    import {TRANSACTION_QUERY} from "../apis/constants";
 
     export default {
         name: "TransactionHistory",
-        data () {
+        data() {
             return {
                 headers: [
-                    { text: '', value: 'icon', align: 'center', sortable: false, },
-                    { text: 'Producto', value: 'product_name', align: 'center', sortable: false, },
-                    { text: 'Cantidad', value: 'amount', align: 'center', sortable: false, },
-                    { text: 'Fecha', value:'date', align: 'center',},
-                    { text: 'Estado', value:'status', align: 'center',}
+                    {text: '', value: 'icon', align: 'center', sortable: false,},
+                    {text: 'Producto', value: 'product_name', align: 'center', sortable: false,},
+                    {text: 'Cantidad', value: 'amount', align: 'center', sortable: false,},
+                    {text: 'Fecha', value: 'date', align: 'center',},
+                    {text: 'Estado', value: 'status', align: 'center',}
                 ],
-                data: '',
+                data: {},
                 STATUS_COLOR: {
                     'A_0': 'red',
                     'A_1': 'orange',
@@ -54,40 +54,16 @@
         },
         apollo: {
             data: {
-                query: gql`
-                    {
-                        supplies {
-                            edges{
-                                node{
-                                    id,
-                                    amount,
-                                    creationDatetime,
-                                    product{
-                                        id,
-                                        name
-                                    },
-                                    status
-                                }
-                            }
-                        },
-                        requests {
-                            edges{
-                                node{
-                                    id,
-                                    amount,
-                                    creationDatetime,
-                                    product{
-                                        id,
-                                        name
-                                    },
-                                    status
-                                }
-                            }
-                        }
+                query: TRANSACTION_QUERY,
+                result(result) {
+                    if (result === undefined || !result.hasOwnProperty("data")) {
+                        return
                     }
-                  `,
-                result(data) {
-                    this.data = data["data"]
+                    window.console.log(result)
+                    this.data = result["data"]
+                },
+                error() {
+                    // TODO: Handle errors...
                 }
             }
         },
@@ -96,36 +72,40 @@
                 let history = []
                 let history_object
 
-                if( this.data["requests"] === undefined){
+                if (this.data === undefined) {
                     return
                 }
 
                 window.console.log("Building table content...")
 
-                for (const value of this.data.requests.edges.values()) {
-                    window.console.log(typeof value.node.creationDatetime)
+                if (this.data["requests"] !== undefined) {
+                    for (const value of this.data.requests.edges.values()) {
+                        window.console.log(typeof value.node.creationDatetime)
 
-                    history_object = {
-                        "icon": "request",
-                        "id": value.node.id,
-                        "amount": value.node.amount,
-                        "product_name": value.node.product.name,
-                        "date": this.format_date(value.node.creationDatetime),
-                        "status": value.node.status
+                        history_object = {
+                            "icon": "request",
+                            "id": value.node.id,
+                            "amount": value.node.amount,
+                            "product_name": value.node.product.name,
+                            "date": this.format_date(value.node.creationDatetime),
+                            "status": value.node.status
+                        }
+                        history.push(history_object)
                     }
-                    history.push(history_object)
+
                 }
-
-                for (const value of this.data.supplies.edges.values()) {
-                    history_object = {
-                        "icon": 'supply',
-                        "id": value.node.id,
-                        "amount": value.node.amount,
-                        "product_name": value.node.product.name,
-                        "date": this.format_date(value.node.creationDatetime),
-                        "status": value.node.status
+                if (this.data["requests"] !== undefined) {
+                    for (const value of this.data.supplies.edges.values()) {
+                        history_object = {
+                            "icon": 'supply',
+                            "id": value.node.id,
+                            "amount": value.node.amount,
+                            "product_name": value.node.product.name,
+                            "date": this.format_date(value.node.creationDatetime),
+                            "status": value.node.status
+                        }
+                        history.push(history_object)
                     }
-                    history.push(history_object)
                 }
 
                 window.console.log("Built table content successfully.")
@@ -136,8 +116,13 @@
         methods: {
             format_date: function (str_datetime) {
                 let date = new Date(str_datetime)
-                return date.toLocaleString("es-ES", {year:'numeric', month:'2-digit', day:'2-digit'})
+                return date.toLocaleString("es-ES", {
+                    year: 'numeric', month: '2-digit', day: '2-digit'
+                })
             }
+        },
+        mounted() {
+            this.$apollo.queries.data.refetch()
         }
     }
 </script>

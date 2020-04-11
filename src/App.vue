@@ -1,12 +1,12 @@
 <template>
     <v-app id="page-container">
-        <navigationBar/>
+        <HelpacketToolbar/>
 
         <div id="content-wrap">
             <router-view></router-view>
         </div>
 
-        <afooter id="footer"/>
+        <HelpacketFooter id="footer"/>
 
     </v-app>
 </template>
@@ -17,15 +17,14 @@
 </style>
 
 <script>
-    import navigationBar from './components/NavigationBar';
-    import afooter from './components/Footer';
+    import HelpacketToolbar from './components/NavigationBar';
+    import HelpacketFooter from './components/Footer';
 
     export default {
         name: 'App',
-
         components: {
-            navigationBar,
-            afooter,
+            HelpacketToolbar,
+            HelpacketFooter,
         },
         computed: {
             username() {

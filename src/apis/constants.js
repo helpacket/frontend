@@ -55,3 +55,49 @@ export const CREATE_SUPPLY = gql`
         }
     }
 `;
+
+export const TRANSACTION_QUERY = gql`
+    query {
+        supplies {
+            edges{
+                node{
+                    id,
+                    amount,
+                    creationDatetime,
+                    product{
+                        id,
+                        name
+                    },
+                    status
+                }
+            }
+        },
+        requests {
+            edges{
+                node{
+                    id,
+                    amount,
+                    creationDatetime,
+                    product{
+                        id,
+                        name
+                    },
+                    status
+                }
+            }
+        }
+    }
+`;
+
+export const PRODUCT_QUERY =  gql`
+    query {
+        products {
+            edges {
+               node {
+                    id,
+                    name
+                }
+            }
+        }
+    }
+`;

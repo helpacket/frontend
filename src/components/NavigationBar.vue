@@ -6,12 +6,10 @@
         @click="goHome">
       <img class="logo" src="@/assets/icon_logo.png" alt="logo">
       <v-toolbar-title>
-        Helpacket
+        {{this.titleMessage}}
       </v-toolbar-title>
     </v-btn>
-
     <v-spacer></v-spacer>
-
     <div v-if="!isLoggedIn()">
       <v-btn
           @click="goLogin"
@@ -20,7 +18,7 @@
           v-if="!inLogin()"
           class="ma-2 white--text"
       >
-        Iniciar Sesión
+        {{this.loginMessage}}
       </v-btn>
       <v-btn
           v-if="!inJoin()"
@@ -29,7 +27,7 @@
           color="red darken-4"
           class="ma-2 white--text"
       >
-        Registrarme
+        {{this.joinMessage}}
       </v-btn>
     </div>
     <div v-else>
@@ -39,7 +37,7 @@
           class="ma-2 white--text"
           @click="goStatistics"
       >
-        Ofrecer
+        {{this.supplyMessage}}
         <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
       </v-btn>
       <v-btn
@@ -48,7 +46,7 @@
           class="ma-2 white--text"
           @click="goNewRequest"
       >
-        Solicitar
+        {{this.requestMessage}}
         <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
       </v-btn>
       <v-btn
@@ -57,7 +55,7 @@
           class="ma-2 white--text"
           @click="goTransactions"
       >
-        Historial
+        {{this.transactionsMessage}}
         <v-icon right dark>fas fa-history</v-icon>
       </v-btn>
       <v-menu
@@ -69,7 +67,6 @@
             <v-icon>mdi-dots-vertical</v-icon>
           </v-btn>
         </template>
-
         <v-list>
           <v-list-item
               @click="goTransactions"
@@ -84,7 +81,7 @@
           >
             <v-list-item-title>
               <v-icon left>fas fa-sign-out-alt</v-icon>
-              Cerrar Sesión
+              {{this.logOutMessage}}
             </v-list-item-title>
           </v-list-item>
         </v-list>
@@ -99,10 +96,18 @@
 
     export default {
         name: 'HelpacketToolbar',
-        data: () => ({
+        data() {
+            return {
+                titleMessage: "Helpacket",
+                transactionsMessage: "Historial",
+                logOutMessage: "Cerrar Sessión",
+                supplyMessage: "Ofrecer",
+                requestMessage: "Solicitar",
+                loginMessage: "Iniciar Sesión",
+                joinMessage: "Registrarme",
                 people: {}
             }
-        ),
+        },
         apollo: {
             people: {
                 query: USER_QUERY,

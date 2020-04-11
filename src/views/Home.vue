@@ -19,7 +19,7 @@
             class="ma-2 white--text"
             @click="addSupply"
         >
-          {{this.offerMessage}}
+          {{this.supplyMessage}}
           <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
         </v-btn>
       </v-col>
@@ -44,7 +44,7 @@
         data() {
             return {
                 descriptionMessage: "Plataforma colaborativa contra el coronavirus",
-                offerMessage: "Doy mascarillas",
+                supplyMessage: "Doy mascarillas",
                 requestMessage: "Quiero mascarillas",
             }
         },

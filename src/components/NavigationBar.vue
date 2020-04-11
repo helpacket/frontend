@@ -55,7 +55,7 @@
           text
           color="blue-grey"
           class="ma-2 white--text"
-          @click="goNewRequest"
+          @click="goTransactions"
       >
         Historial
         <v-icon right dark>fas fa-history</v-icon>

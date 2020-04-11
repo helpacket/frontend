@@ -3,7 +3,9 @@ import VueRouter from 'vue-router'
 import ConcertInfo from '../views/ConcertInfo.vue'
 import Home from '../views/Home.vue'
 import RequestForm from "../views/RequestForm";
+import SupplyForm from "../views/SupplyForm";
 import TransactionHistory from "../views/TransactionHistory";
+import Statistics from "../views/Statistics"
 import Login from "../views/Login";
 import Join from "../views/Join";
 import Dev from "../views/Dev"; /* To be removed */
@@ -47,8 +49,22 @@ const routes = [
         }
     },
     {
+        path: '/supply_form',
+        component: SupplyForm,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
         path: '/transactions',
         component: TransactionHistory,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        path: '/statistics',
+        component: Statistics,
         meta: {
             requiresAuth: true
         }

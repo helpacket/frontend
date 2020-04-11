@@ -1,130 +1,50 @@
 <template>
-    <div>
-        <v-container>
-            <v-row>
-                <v-col align="center">
-                    <v-img src="@/assets/main_logo.png" height="400px" width="400px"></v-img>
-                </v-col>
-            </v-row>
-            <v-row>
-                <v-col align="center">
-                    <div class="text-center headline font-weight-regular pb-5">Plataforma colaborativa contra el coronavirus</div>
-                </v-col>
-            </v-row>
-            <v-row>
-                <v-col align="right">
-                    <v-btn
-                            :loading="loading3"
-                            :disabled="loading3"
-                            color="red darken-4"
-                            class="ma-2 white--text"
-                            @click="loader = 'loading3'"
-                    >
-                        Doy mascarillas
-                        <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
-                    </v-btn>
-                </v-col>
-                <v-col>
-                    <router-link
-                        to='/request_form'
-                        tag="v-btn"
-                    >
-                        <v-btn
-                                align="left"
-                                :loading="loading3"
-                                :disabled="loading3"
-                                color="blue-grey"
-                                class="ma-2 white--text"
-                                @click="loader = 'loading3'"
-                        >
-                            Quiero mascarillas
-                            <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
-                        </v-btn>
-                    </router-link>
-                </v-col>
-            </v-row>
-        </v-container>
-
-        <div v-if="$apollo.loading">
-            <v-container fluid class="px-5">
-                <v-row>
-                    <v-col md="3">
-                        <v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
-                    </v-col>
-                    <v-col md="3">
-                        <v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
-                    </v-col>
-                    <v-col md="3">
-                        <v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
-                    </v-col>
-                    <v-col md="3">
-                        <v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
-                    </v-col>
-                    <v-col md="3">
-                        <v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
-                    </v-col>
-                    <v-col md="3">
-                        <v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
-                    </v-col>
-                    <v-col md="3">
-                        <v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
-                    </v-col>
-                    <v-col md="3">
-                        <v-skeleton-loader class="mx-auto" max-width="300" type="card"></v-skeleton-loader>
-                    </v-col>
-                </v-row>
-            </v-container>
-        </div>
-        <div v-else>
-
-            <v-container fluid class="px-5">
-                <v-row>
-                    <v-col v-for="concert in allConcerts" :key="concert.id" md="3">
-                        <cardComponent :concert="concert"></cardComponent>
-                    </v-col>
-                </v-row>
-            </v-container>
-
-        </div>
-    </div>
+    <v-container>
+        <v-row>
+            <v-col align="center">
+                <v-img src="@/assets/main_logo.png" height="400px" width="400px"></v-img>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col align="center">
+                <div class="text-center headline font-weight-regular pb-5">Plataforma colaborativa contra el coronavirus</div>
+            </v-col>
+        </v-row>
+        <v-row>
+            <v-col align="right">
+                <v-btn
+                        color="red darken-4"
+                        class="ma-2 white--text"
+                        @click="addSupply"
+                >
+                    Doy mascarillas
+                    <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
+                </v-btn>
+            </v-col>
+            <v-col>
+                <v-btn
+                        align="left"
+                        color="blue-grey"
+                        class="ma-2 white--text"
+                        @click="addRequest"
+                >
+                    Quiero mascarillas
+                    <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
+                </v-btn>
+            </v-col>
+        </v-row>
+    </v-container>
 </template>
 
-
 <script>
-    import cardComponent from '../components/CardComponent';
-    import {gql} from 'apollo-boost';
-
-
     export default {
-        components: {
-            cardComponent,
-        },
-
-        data: () => ({
-                nome: '',
-                allConcerts: {}
-            }
-        ),
-        apollo: {
-            allConcerts: {
-                query: gql`
-          {
-            allConcerts{
-              id,
-              band {
-                name,
-                imageUrl
-              },
-              bar {
-                name
-              },
-              cost,
-              startDatetime
-            }
-          }
-          `
-            }
+        methods: {
+            addSupply: function () {
+                this.$router.push('/statistics');
+            },
+            addRequest: function () {
+                this.$router.push('/request_form');
+            },
         }
-
     };
 </script>

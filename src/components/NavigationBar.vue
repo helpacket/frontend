@@ -119,9 +119,6 @@
                 skip() {
                     return !this.isLoggedIn();
                 },
-                error() {
-                    this.logout();
-                }
             }
         },
         methods: {
@@ -142,10 +139,9 @@
                 return this.$route.path === "/join"
             },
             humanizedUser() {
-                if (this.people === {}) {
+                if (this.people === undefined) {
                     return "";
                 }
-
                 const user = this.people.edges[0].node;
 
                 return `${user.firstName} ${user.lastName}`;

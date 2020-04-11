@@ -44,14 +44,14 @@ const routes = [
         }
     },
     {
-        path: '/request_form',
+        path: '/requests/new',
         component: RequestForm,
         meta: {
             requiresAuth: true
         }
     },
     {
-        path: '/supply_form',
+        path: '/supplies/new',
         component: SupplyForm,
         meta: {
             requiresAuth: true

@@ -43,7 +43,7 @@
                 this.$router.push('/statistics');
             },
             addRequest: function () {
-                this.$router.push('/request_form');
+                this.$router.push('/requests/new');
             },
         }
     };

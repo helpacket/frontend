@@ -21,7 +21,7 @@
         name: "Statistics",
         methods: {
             addSupply: function () {
-                this.$router.push('/supply_form');
+                this.$router.push('/supplies/new');
             },
         }
     }

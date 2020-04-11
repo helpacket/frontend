@@ -1,13 +1,15 @@
 <template>
   <div>
     <v-app-bar dense light fixed>
-      <router-link to="/">
-        <v-avatar>
-          <img src="@/assets/icon_logo.png" alt="logo">
-        </v-avatar>
-      </router-link>
-
-      <v-toolbar-title @click="goHome">Helpacket</v-toolbar-title>
+      <v-btn
+          text
+          color="blue-grey"
+          @click="goHome">
+        <img class="logo" src="@/assets/icon_logo.png" alt="logo">
+        <v-toolbar-title>
+          Helpacket
+        </v-toolbar-title>
+      </v-btn>
 
       <v-spacer></v-spacer>
 
@@ -42,8 +44,27 @@
       <div v-else>
         <v-btn
             text
+            color="red darken-4"
+            class="ma-2 white--text"
+            @click="goStatistics"
+        >
+          Ofrecer
+          <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
+        </v-btn>
+        <v-btn
+            text
             color="blue-grey"
             class="ma-2 white--text"
+            @click="goNewRequest"
+        >
+          Solicitar
+          <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
+        </v-btn>
+        <v-btn
+            text
+            color="blue-grey"
+            class="ma-2 white--text"
+            @click="goTransactions"
         >
           <v-icon left dark>fas fa-user</v-icon>
           {{ this.humanizedUser() }}
@@ -95,7 +116,7 @@
         apollo: {
             people: {
                 query: USER_QUERY,
-                skip () {
+                skip() {
                     return !this.isLoggedIn();
                 },
             }
@@ -127,7 +148,23 @@
                 return `${user.firstName} ${user.lastName}`;
             },
             goHome: function () {
-              this.$router.push('/');
+                if (this.isLoggedIn()) {
+                    this.goTransactions()
+                } else {
+                    this.goLanding();
+                }
+            },
+            goLanding: function () {
+                this.$router.push('/');
+            },
+            goStatistics: function () {
+                this.$router.push('/statistics');
+            },
+            goNewRequest: function () {
+                this.$router.push('/requests/new');
+            },
+            goTransactions: function () {
+                this.$router.push('/transactions');
             },
         }
     };

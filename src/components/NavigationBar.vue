@@ -119,6 +119,9 @@
                 skip() {
                     return !this.isLoggedIn();
                 },
+                error() {
+                    this.logout();
+                }
             }
         },
         methods: {

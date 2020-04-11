@@ -69,36 +69,36 @@
           <v-icon left dark>fas fa-user</v-icon>
           {{ this.humanizedUser() }}
         </v-btn>
-      </div>
-      <v-menu
-          left
-          bottom
-      >
-        <template v-slot:activator="{ on }">
-          <v-btn icon v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
-          </v-btn>
-        </template>
+        <v-menu
+            left
+            bottom
+        >
+          <template v-slot:activator="{ on }">
+            <v-btn icon v-on="on">
+              <v-icon>mdi-dots-vertical</v-icon>
+            </v-btn>
+          </template>
 
-        <v-list>
-          <v-list-item
-              v-if="isLoggedIn()"
-              @click="redirectToDev"
-          >
-            <v-list-item-title>
-              DEV
-            </v-list-item-title>
-          </v-list-item>
-          <v-list-item
-              v-if="isLoggedIn()"
-              @click="logout"
-          >
-            <v-list-item-title>
-              Cerrar Sesión
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
+          <v-list>
+            <v-list-item
+                v-if="isLoggedIn()"
+                @click="redirectToDev"
+            >
+              <v-list-item-title>
+                DEV
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item
+                v-if="isLoggedIn()"
+                @click="logout"
+            >
+              <v-list-item-title>
+                Cerrar Sesión
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
     </v-app-bar>
   </div>
 </template>

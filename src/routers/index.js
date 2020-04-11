@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import ConcertInfo from '../views/ConcertInfo.vue'
 import Home from '../views/Home.vue'
 import RequestForm from "../views/RequestForm";
 import SupplyForm from "../views/SupplyForm";
@@ -31,14 +30,6 @@ const routes = [
     {
         path: '/dev',
         component: Dev,  /* To be removed */
-        meta: {
-            requiresAuth: true
-        }
-    },
-    {
-        path: '/concert/:id',
-        component: ConcertInfo,
-        props: true,
         meta: {
             requiresAuth: true
         }

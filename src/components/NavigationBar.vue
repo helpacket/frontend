@@ -7,7 +7,7 @@
         </v-avatar>
       </router-link>
 
-      <v-toolbar-title>Helpacket</v-toolbar-title>
+      <v-toolbar-title @click="goHome">Helpacket</v-toolbar-title>
 
       <v-spacer></v-spacer>
 
@@ -125,7 +125,10 @@
                 const user = this.people.edges[0].node;
 
                 return `${user.firstName} ${user.lastName}`;
-            }
+            },
+            goHome: function () {
+              this.$router.push('/');
+            },
         }
     };
 </script>

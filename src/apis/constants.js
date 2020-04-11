@@ -33,3 +33,14 @@ export const USER_QUERY = gql`
         }
     }
 `;
+
+export const CREATE_REQUEST = gql`
+    mutation ($input: RequestMutationInput!) {
+        request (input: $input){
+            result{
+                id,
+                amount
+            }
+        }
+    }
+`;

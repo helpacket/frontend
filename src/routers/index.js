@@ -47,7 +47,7 @@ const routes = [
         }
     },
     {
-        path: '/transaction_history',
+        path: '/transactions',
         component: TransactionHistory,
         meta: {
             requiresAuth: true

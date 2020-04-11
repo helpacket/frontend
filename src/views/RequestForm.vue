@@ -1,59 +1,91 @@
 <template>
-    <v-form>
-        <v-container>
-            <v-row>
-                <h1>Aquí va un formulario to guapo</h1>
-            </v-row>
-            <v-row align="center">
-                <v-col cols="6">
+    <v-container justify="center">
+        <v-row justify="center">
+            <v-card width="600" justify="center">
+                <v-card-title class="pb-2">
+                    Crear solicitud de material
+                </v-card-title>
+                <v-card-text class="pb-2">
                     <v-select
-                            v-model="e6"
-                            :items="states"
+                            v-model="request.productId"
+                            :items="processedProducts"
                             menu-props="auto"
-                            label="Select"
+                            label="Producto"
                             hide-details
-                            single-line
+                            class="mp-2"
                     ></v-select>
-                </v-col>
-                <v-col cols="6">
-                    <v-select
-                            v-model="e7"
-                            :items="states"
-                            menu-props="auto"
-                            hide-details
-                            label="Select"
+                    <v-text-field
+                            v-model="request.amount"
+                            type="number"
+                            label="Cantidad"
                             single-line
-                    ></v-select>
-                </v-col>
-            </v-row>
-        </v-container>
-    </v-form>
+                    ></v-text-field>
+                </v-card-text>
+                <v-card-actions>
+                    <v-btn justify="right" color="white--text red darken-4" @click="submit">Crear</v-btn>
+                </v-card-actions>
+            </v-card>
+        </v-row>
+    </v-container>
 </template>
 
 <script>
+    import {gql} from "apollo-boost";
+    import {CREATE_REQUEST} from "../apis/constants";
+
     export default {
         name: "RequestForm",
         data (){
             return {
-                e6: [],
-                e7: [],
-                states: [
-                    'Alabama', 'Alaska', 'American Samoa', 'Arizona',
-                    'Arkansas', 'California', 'Colorado', 'Connecticut',
-                    'Delaware', 'District of Columbia', 'Federated States of Micronesia',
-                    'Florida', 'Georgia', 'Guam', 'Hawaii', 'Idaho',
-                    'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-                    'Louisiana', 'Maine', 'Marshall Islands', 'Maryland',
-                    'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-                    'Missouri', 'Montana', 'Nebraska', 'Nevada',
-                    'New Hampshire', 'New Jersey', 'New Mexico', 'New York',
-                    'North Carolina', 'North Dakota', 'Northern Mariana Islands', 'Ohio',
-                    'Oklahoma', 'Oregon', 'Palau', 'Pennsylvania', 'Puerto Rico',
-                    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee',
-                    'Texas', 'Utah', 'Vermont', 'Virgin Island', 'Virginia',
-                    'Washington', 'West Virginia', 'Wisconsin', 'Wyoming',
-                ],
+                request: {},
+                products: {},
             }
+        },
+        apollo: {
+            products: {
+                query: gql`
+                    {
+                        products {
+                            edges{
+                                node{
+                                    id,
+                                    name
+                                }
+                            }
+                        }
+                    }
+                  `
+            }
+        },
+        computed: {
+            processedProducts() {
+                if(this.products.edges === undefined){
+                    return
+                }
+                let result = []
+                for (const product of this.products.edges.values()){
+                    result.push(
+                        {
+                            "text": product.node.name,
+                            "value": product.node.id
+                        }
+                    )
+                }
+                return result
+            }
+        },
+        methods: {
+            submit: function () {
+                this.$apollo.mutate({
+                    mutation: CREATE_REQUEST,
+                    variables: {
+                        input: this.request
+                    },
+                }).then(() => {
+                    this.$router.push('/transactions');
+                });
+
+            },
         }
     }
 </script>

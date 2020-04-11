@@ -1,21 +1,27 @@
 <template>
-    <v-container>
-        <h2 class="title red--text text--darken-4 my-4">
-            Historial de transacciones
-        </h2>
-        <v-data-table
-                :headers="headers"
-                :items="table_content"
-                :items-per-page="5"
-        >
-            <template v-slot:item.icon="{ item }">
-                <v-icon v-if="item.icon === 'request'" right dark color="red">fas fa-long-arrow-alt-left</v-icon>
-                <v-icon v-else right dark color="green">fas fa-long-arrow-alt-right</v-icon>
-            </template>
-            <template v-slot:item.status="{ item }">
-                <v-chip :color="STATUS_COLOR[item.status]" dark>{{ STATUS_TEXT[item.status] }}</v-chip>
-            </template>
-        </v-data-table>
+    <v-container justify="center">
+        <v-row justify="center">
+            <v-card width="90%" justify="center">
+                <v-card-title class="pb-2">
+                    Historial de transacciones
+                </v-card-title>
+                <v-card-text class="pb-2">
+                    <v-data-table
+                            :headers="headers"
+                            :items="table_content"
+                            :items-per-page="10"
+                    >
+                        <template v-slot:item.icon="{ item }">
+                            <v-icon v-if="item.icon === 'request'" right dark color="red">fas fa-long-arrow-alt-left</v-icon>
+                            <v-icon v-else right dark color="green">fas fa-long-arrow-alt-right</v-icon>
+                        </template>
+                        <template v-slot:item.status="{ item }">
+                            <v-chip :color="STATUS_COLOR[item.status]" dark>{{ STATUS_TEXT[item.status] }}</v-chip>
+                        </template>
+                    </v-data-table>
+                </v-card-text>
+            </v-card>
+        </v-row>
     </v-container>
 </template>
 

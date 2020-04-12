@@ -287,7 +287,7 @@
                     :href="this.emailHRef()"
                     target="_blank"
                 >
-                  {{this.contactWithUsLinkMessage}}
+                  {{this.email}}
                   <v-icon right dark>fas fa-envelope</v-icon>
                 </v-btn>
               </v-col>
@@ -307,7 +307,6 @@
                 descriptionMessage: "Plataforma colaborativa contra el coronavirus",
                 analyticsLinkMessage: "Ver Analíticas",
                 helpFromHomeLinkMessage: "Guía de Fabricación",
-                contactWithUsLinkMessage: "Enviar Email",
                 videoLinkMessage: "Ir al video",
                 supplyMessage: "Ofrecer",
                 requestMessage: "Solicitar",

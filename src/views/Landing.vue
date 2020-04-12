@@ -321,7 +321,7 @@
                 whatIsMessage: [
                     "Helpacket es una plataforma colaborativa que aglutina, por un lado, la oferta de material sanitario y EPIs de empresas y particulares y, por otro, las necesidades de estos materiales para las Instituciones Sanitarias, Residencias y colectivos más desfavorecidos. La plataforma, que es gestionada por la Administración competente, suministra las peticiones de las instituciones teniendo en cuenta diversos criterios evaluados",
                 ],
-                helpFromHomeHeader: "¿Cómo puedes ayudar desde casa?",
+                helpFromHomeHeader: "¿Cómo puedo ayudar desde casa?",
                 helpFromHomeMessage: [
                     "Aquí encontrarás una guía de tutoriales y videos donde te enseñarán a fabricar cualquier tipo de material necesario.",
                     "Cada granito cuenta."]

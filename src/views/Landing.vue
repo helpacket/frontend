@@ -89,8 +89,8 @@
               sm="6"
               xs="12"
           >
-            <p class="text-justify">
-              {{this.analyticsMessage}}
+            <p class="text-justify" v-for="row in this.analyticsMessage" :key="row">
+              {{row}}
             </p>
             <v-row>
               <v-col
@@ -141,8 +141,8 @@
               sm="6"
               order-sm="1"
           >
-            <p class="text-justify">
-              {{this.whatIsMessage}}
+            <p class="text-justify" v-for="row in this.whatIsMessage" :key="row">
+              {{row}}
             </p>
             <v-row>
               <v-col
@@ -184,8 +184,8 @@
               sm="6"
               xs="12"
           >
-            <p class="text-justify">
-              {{this.helpFromHomeMessage}}
+            <p class="text-justify" v-for="row in this.helpFromHomeMessage" :key="row">
+              {{row}}
             </p>
             <v-row>
               <v-col
@@ -215,8 +215,8 @@
           </v-col>
         </v-row>
         <v-row>
-          <p class="text-justify">
-            {{this.aboutUsMessage}}
+          <p class="text-justify" v-for="row in this.aboutUsMessage" :key="row">
+            {{row}}
           </p>
         </v-row>
         <v-row>
@@ -300,9 +300,9 @@
         </v-row>
         <v-row>
           <v-col>
-            <h2 style="padding-top: 36px;">{{this.aboutUsColabSubHeader}}</h2>
-            <p class="text-justify">
-              {{this.aboutUsColabMessage}}
+            <h2 style="padding-top: 36px; padding-bottom: 12px;">{{this.aboutUsColabSubHeader}}</h2>
+            <p class="text-justify" v-for="row in this.aboutUsColabMessage" :key="row">
+              {{row}}
             </p>
           </v-col>
         </v-row>
@@ -321,8 +321,8 @@
               sm="6"
               xs="12"
           >
-            <p class="text-justify">
-              {{this.contactMessage}}
+            <p class="text-justify" v-for="row in this.contactMessage" :key="row">
+              {{row}}
             </p>
             <v-row>
               <v-col
@@ -372,18 +372,33 @@
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
                 yotutubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",
                 analyticsHeader: "Analíticas de Demanda",
-                analyticsMessage: "Aquí puedes ver los productos más necesarios en cada momento, así podrás planificar tu producción en función a las necesidades actuales.\nEstos datos los podemos analizar gracias a tener la demanda centralizada de Hospitales, residencias y grupos más desfavorecidos que piden el material a través de nuestra plataforma.",
+                analyticsMessage: [
+                    "Aquí puedes ver los productos más necesarios en cada momento, así podrás planificar tu producción en función a las necesidades actuales.",
+                    "Estos datos los podemos analizar gracias a tener la demanda centralizada de Hospitales, residencias y grupos más desfavorecidos que piden el material a través de nuestra plataforma."
+                ],
                 whatIsHeader: "¿Qué es Helpacket?",
-                whatIsMessage: "Helpacket es una plataforma colaborativa que aglutina, por un lado, la oferta de material sanitario y EPIs de empresas y particulares y, por otro, las necesidades de estos materiales para las Instituciones Sanitarias, Residencias y colectivos más desfavorecidos. La plataforma, que es gestionada por la Administración competente, suministra las peticiones de las instituciones teniendo en cuenta diversos criterios evaluados",
+                whatIsMessage: [
+                    "Helpacket es una plataforma colaborativa que aglutina, por un lado, la oferta de material sanitario y EPIs de empresas y particulares y, por otro, las necesidades de estos materiales para las Instituciones Sanitarias, Residencias y colectivos más desfavorecidos. La plataforma, que es gestionada por la Administración competente, suministra las peticiones de las instituciones teniendo en cuenta diversos criterios evaluados",
+                ],
                 helpFromHomeHeader: "¿Cómo puedes ayudar desde casa?",
-                helpFromHomeMessage: "Aquí encontrarás una guía de tutoriales y videos donde te enseñarán a fabricar cualquier tipo de material necesario.\nCada granito cuenta.",
+                helpFromHomeMessage: [
+                    "Aquí encontrarás una guía de tutoriales y videos donde te enseñarán a fabricar cualquier tipo de material necesario.",
+                    "Cada granito cuenta."]
+                ,
                 aboutUsHeader: "¿Quiénes somos?",
-                aboutUsMessage: "La comunidad de Madrid propuso un Hackatón para descubrir e impulsar iniciativas que ayudarán en la crisis del Coronavirus, en este momento nos juntamos un equipo multidisciplinar en el que, con profesionales de logística, comunicación e informática, nos presentamos al concurso de la comunidad de Madrid en el que salimos finalistas, ahora ¡Cada vez estamos más cerca de hacerlo realidad!",
+                aboutUsMessage: [
+                    "La comunidad de Madrid propuso un Hackatón para descubrir e impulsar iniciativas que ayudarán en la crisis del Coronavirus, en este momento nos juntamos un equipo multidisciplinar en el que, con profesionales de logística, comunicación e informática, nos presentamos al concurso de la comunidad de Madrid en el que salimos finalistas, ahora ¡Cada vez estamos más cerca de hacerlo realidad!",
+                ],
                 aboutUsTeamSubHeader: "Miembros del Equipo",
                 aboutUsColabSubHeader: "Sanitarios colaboradores",
-                aboutUsColabMessage: "Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés\nPaloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife",
+                aboutUsColabMessage: [
+                    "Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés",
+                    "Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife",
+                ],
                 contactHeader: "Contacta con Nosotros",
-                contactMessage: "Si quieres ayudar, si tienes alguna idea que podría ayudar a esta plataforma, si quieres colaborar o aunque solo quieras saludar, no dudes en contactarnos en:",
+                contactMessage: [
+                    "Si quieres ayudar, si tienes alguna idea que podría ayudar a esta plataforma, si quieres colaborar o aunque solo quieras saludar, no dudes en contactarnos a traves de:",
+                ],
                 team: [
                     {"name": "Alberto Amigo", "position": "Software Engineer", "imageURL": ""},
                     {

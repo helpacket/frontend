@@ -314,7 +314,7 @@
                 email: "helpacket@gmail.com",
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
                 yotutubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",
-                analyticsHeader: "Analíticas de Demanda",
+                analyticsHeader: "Análisis de Demanda",
                 analyticsImageUrl: "https://via.placeholder.com/480x280",
                 analyticsMessage: [
                     "Aquí puedes ver los productos más necesarios en cada momento, así podrás planificar tu producción en función a las necesidades actuales.",

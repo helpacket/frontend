@@ -223,79 +223,20 @@
           <h2>{{this.aboutUsTeamSubHeader}}</h2>
         </v-row>
         <v-row>
-          <v-col
-              offset-sm="1"
-              sm="2"
-              xs="6"
+          <v-col v-for="(item, index) in this.team" v-bind:key="index"
+                 sm="3"
+                 xs="6"
+                 class="d-flex flex-column"
           >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-          <v-col
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-          <v-col
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-          <v-col
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-          <v-col
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-        </v-row>
-        <v-row>
-          <v-col
-              offset-sm="1"
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-          <v-col
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-          <v-col
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-          <v-col
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
-          </v-col>
-          <v-col
-              sm="2"
-              xs="6"
-          >
-            <v-img src="https://via.placeholder.com/180"></v-img>
-            Pepito Perez
+            <v-card class="flex flex-column">
+              <v-img class="white--text align-end"
+                     gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
+                     height="200px"
+                     :src="item.imageURL"></v-img>
+
+              <v-card-title>{{item.name}}</v-card-title>
+              <v-card-subtitle>{{item.position}}</v-card-subtitle>
+            </v-card>
           </v-col>
         </v-row>
         <v-row>
@@ -400,7 +341,11 @@
                     "Si quieres ayudar, si tienes alguna idea que podría ayudar a esta plataforma, si quieres colaborar o aunque solo quieras saludar, no dudes en contactarnos a traves de:",
                 ],
                 team: [
-                    {"name": "Alberto Amigo", "position": "Software Engineer", "imageURL": ""},
+                    {
+                        "name": "Alberto Amigo",
+                        "position": "Software Engineer",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
                     {
                         "name": "Carlos Carrillo",
                         "position": "Departamento de Aduanas de DB Schenker , Estudiante de Transporte y Logística en UCJC",
@@ -418,7 +363,7 @@
                     },
                     {
                         "name": "Oscar Fernández",
-                        "position": "Software Engineer & Data Scientist en Unlimiteck",
+                        "position": "Software Engineer en Unlimiteck",
                         "imageURL": "https://via.placeholder.com/180"
                     },
                     {

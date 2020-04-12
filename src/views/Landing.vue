@@ -2,52 +2,69 @@
   <v-container justify="center">
     <div id="first-view">
       <v-row>
-        <v-col align="center">
-          <v-img src="@/assets/main_logo.png" height="400px" width="400px"></v-img>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col align="center">
-          <div class="text-center headline font-weight-regular pb-5">
-            {{this.descriptionMessage}}
-          </div>
-        </v-col>
-      </v-row>
-      <v-row>
-        <v-col align="right">
-          <v-btn
-              color="primary"
-              class="ma-2 white--text"
-              @click="addSupply"
-          >
-            {{this.supplyMessage}}
-            <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
-          </v-btn>
-        </v-col>
-        <v-col>
-          <v-btn
-              align="left"
-              color="secondary"
-              class="ma-2 white--text"
-              @click="addRequest"
-          >
-            {{this.requestMessage}}
-            <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
-          </v-btn>
+        <v-col
+            sm="6"
+            offset-sm="3">
+          <v-row>
+            <v-col align="center">
+              <v-img src="@/assets/main_logo.png" class="image-landing"></v-img>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col align="center">
+              <div class="text-center headline font-weight-regular pb-5">
+                {{this.descriptionMessage}}
+              </div>
+            </v-col>
+          </v-row>
+          <v-row>
+            <v-col>
+              <v-btn
+                  color="primary"
+                  @click="addSupply"
+                  sm="6"
+                  xs="12"
+                  block
+              >
+                {{this.supplyMessage}}
+                <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
+              </v-btn>
+            </v-col>
+            <v-col>
+              <v-btn
+                  color="secondary"
+                  @click="addRequest"
+                  sm="6"
+                  xs="12"
+                  block
+              >
+                {{this.requestMessage}}
+                <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
+              </v-btn>
+            </v-col>
+          </v-row>
         </v-col>
       </v-row>
     </div>
     <div class="second-view">
       <v-row>
-        <v-col>
+        <v-col
+          xs="12"
+        >
           <h1>Explanation</h1>
         </v-col>
       </v-row>
       <v-row>
-        <v-col>
-          <img src="https://via.placeholder.com/480x360">
+        <v-col
+            sm="6"
+            xs="12"
+        >
+          <v-img src="https://via.placeholder.com/480x360"></v-img>
         </v-col>
-        <v-col>
+        <v-col
+            sm="6"
+            xs="12"
+        >
           <p class="text-justify">
             {{this.loremIpsumMessage}}
           </p>
@@ -59,72 +76,120 @@
     </div>
     <div class="second-view">
       <v-row>
-        <v-col>
+        <v-col
+          xs="12"
+        >
           <h1>Explanation</h1>
         </v-col>
       </v-row>
       <v-row>
-        <v-col>
-          <p class="text-justify">
-            {{this.loremIpsumMessage}}
-          </p>
-          <p class="text-justify">
-            {{this.loremIpsumMessage}}
-          </p>
+        <v-col
+            sm="6"
+            order-sm="2"
+        >
+          <v-img src="https://via.placeholder.com/480x360"></v-img>
         </v-col>
-        <v-col>
-          <img src="https://via.placeholder.com/480x360">
+        <v-col
+            sm="6"
+            order-sm="1"
+        >
+          <p class="text-justify">
+            {{this.loremIpsumMessage}}
+          </p>
+          <p class="text-justify">
+            {{this.loremIpsumMessage}}
+          </p>
         </v-col>
       </v-row>
     </div>
     <div class="second-view">
       <v-row>
-        <v-col>
+        <v-col
+          xs="12"
+        >
           <h1>Team</h1>
         </v-col>
       </v-row>
       <v-row>
-        <v-col>
-          <img src="https://via.placeholder.com/180">
+        <v-col
+            sm="3"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
         </v-col>
-        <v-col>
-          <img src="https://via.placeholder.com/180">
+        <v-col
+            sm="3"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
         </v-col>
-        <v-col>
-          <img src="https://via.placeholder.com/180">
+        <v-col
+            sm="3"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
         </v-col>
-        <v-col>
-          <img src="https://via.placeholder.com/180">
+        <v-col
+            sm="3"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
         </v-col>
       </v-row>
       <v-row>
-        <v-col>
-          <img src="https://via.placeholder.com/180">
+        <v-col
+            sm="3"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
         </v-col>
-        <v-col>
-          <img src="https://via.placeholder.com/180">
+        <v-col
+            sm="3"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
         </v-col>
-        <v-col>
-          <img src="https://via.placeholder.com/180">
+        <v-col
+            sm="3"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
         </v-col>
-        <v-col>
-          <img src="https://via.placeholder.com/180">
+        <v-col
+            sm="3"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
         </v-col>
       </v-row>
     </div>
     <div class="second-view">
-      <v-row>
+      <v-row
+        xs="12"
+      >
         <v-col>
           <h1>Contact</h1>
         </v-col>
       </v-row>
       <v-row>
-        <v-col>
+        <v-col
+            sm="6"
+        >
           <p class="text-justify">
             {{this.loremIpsumMessage}}
           </p>
         </v-col>
-        <v-col>
+        <v-col
+            sm="6"
+        >
           <v-card>
             <v-card-text>
               <v-form>
@@ -174,7 +239,7 @@
   }
 
   .second-view {
-    min-height: 100vh;
+    padding-bottom: 10vh;
   }
 
 </style>

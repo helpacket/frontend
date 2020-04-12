@@ -20,3 +20,8 @@ img.logo {
   max-width: 32px;
   max-height: 32px;
 }
+
+.image-landing {
+  max-height: 360px;
+  max-width: 360px;
+}

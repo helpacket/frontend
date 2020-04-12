@@ -105,7 +105,7 @@
     <div class="second-view">
       <v-row>
         <v-col
-          xs="12"
+            xs="12"
         >
           <h1>Team</h1>
         </v-col>
@@ -181,14 +181,18 @@
       </v-row>
       <v-row>
         <v-col
+            cols="12"
             sm="6"
+            xs="12"
         >
           <p class="text-justify">
             {{this.loremIpsumMessage}}
           </p>
         </v-col>
         <v-col
+            cols="12"
             sm="6"
+            xs="12"
         >
           <v-card>
             <v-card-text>

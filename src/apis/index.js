@@ -5,7 +5,7 @@ import {store} from "../stores"
 
 Vue.use(VueApollo);
 
-const API_ENDPOINT = "http://localhost:8000/graphql/";
+const API_ENDPOINT = window.location.protocol + "//" + window.location.hostname + ":8000/graphql/";
 
 export const client = new ApolloClient({
     uri: API_ENDPOINT,

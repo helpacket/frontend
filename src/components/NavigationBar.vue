@@ -2,8 +2,9 @@
   <div>
     <v-navigation-drawer
         v-if="isLoggedIn()"
-        v-model="this.drawer"
-        clipped app
+        v-model="drawer"
+        clipped
+        app
     >
       <v-list>
         <v-list-item
@@ -224,7 +225,7 @@
                 loginMessage: "Iniciar Sesión",
                 joinMessage: "Registrarme",
                 people: {},
-                drawer: false,
+                drawer: null,
             }
         },
         apollo: {
@@ -330,10 +331,6 @@
                     this.toggleDrawer();
                 }
             }
-        },
-        mounted() {
-            window.console.log(window.innerWidth)
-            this.drawer = (window.innerWidth > 1024);
         }
     };
 </script>

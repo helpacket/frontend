@@ -1,7 +1,18 @@
 <template>
-  <v-container justify="center">
-    <v-row justify="center">
-      <v-card width="600" justify="center">
+  <v-container
+      justify="center"
+  >
+    <v-row
+        justify="center"
+    >
+      <v-col
+          cols="12"
+          sm="8"
+          md="6"
+      >
+      <v-card
+          justify="center"
+      >
         <v-card-title class="pb-2">
           Crear solicitud de material
         </v-card-title>
@@ -26,6 +37,7 @@
           <v-btn justify="right" color="white--text primary" @click="submit">Crear</v-btn>
         </v-card-actions>
       </v-card>
+      </v-col>
     </v-row>
   </v-container>
 </template>

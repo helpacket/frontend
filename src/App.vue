@@ -2,12 +2,12 @@
     <v-app id="page-container">
         <HelpacketToolbar/>
 
-        <div id="content-wrap">
-            <router-view></router-view>
-        </div>
-
-        <HelpacketFooter id="footer"/>
-
+        <v-content>
+            <div id="content-wrap">
+                <router-view></router-view>
+            </div>
+            <HelpacketFooter id="footer"/>
+        </v-content>
     </v-app>
 </template>
 

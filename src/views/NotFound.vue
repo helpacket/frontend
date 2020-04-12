@@ -15,7 +15,7 @@
         <v-card class="elevation-12">
           <v-form>
             <v-toolbar
-                color="blue-grey"
+                color="secondary"
                 dark
                 flat
             >
@@ -27,7 +27,7 @@
             <v-card-actions>
               <v-spacer/>
               <v-btn
-                  color="red darken-4"
+                  color="primary"
                   @click="goHome"
                   dark
               >
@@ -60,8 +60,8 @@
             goLanding: function () {
                 this.$router.push('/');
             },
-            goStatistics: function () {
-                this.$router.push('/statistics');
+            goAnalytics: function () {
+                this.$router.push('/analytics');
             },
             goNewRequest: function () {
                 this.$router.push('/requests/new');

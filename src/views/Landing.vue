@@ -112,28 +112,36 @@
       </v-row>
       <v-row>
         <v-col
-            sm="3"
+            offset-sm="1"
+            sm="2"
             xs="6"
         >
           <v-img src="https://via.placeholder.com/180"></v-img>
           Pepito Perez
         </v-col>
         <v-col
-            sm="3"
+            sm="2"
             xs="6"
         >
           <v-img src="https://via.placeholder.com/180"></v-img>
           Pepito Perez
         </v-col>
         <v-col
-            sm="3"
+            sm="2"
             xs="6"
         >
           <v-img src="https://via.placeholder.com/180"></v-img>
           Pepito Perez
         </v-col>
         <v-col
-            sm="3"
+            sm="2"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
+        </v-col>
+        <v-col
+            sm="2"
             xs="6"
         >
           <v-img src="https://via.placeholder.com/180"></v-img>
@@ -142,28 +150,36 @@
       </v-row>
       <v-row>
         <v-col
-            sm="3"
+            offset-sm="1"
+            sm="2"
             xs="6"
         >
           <v-img src="https://via.placeholder.com/180"></v-img>
           Pepito Perez
         </v-col>
         <v-col
-            sm="3"
+            sm="2"
             xs="6"
         >
           <v-img src="https://via.placeholder.com/180"></v-img>
           Pepito Perez
         </v-col>
         <v-col
-            sm="3"
+            sm="2"
             xs="6"
         >
           <v-img src="https://via.placeholder.com/180"></v-img>
           Pepito Perez
         </v-col>
         <v-col
-            sm="3"
+            sm="2"
+            xs="6"
+        >
+          <v-img src="https://via.placeholder.com/180"></v-img>
+          Pepito Perez
+        </v-col>
+        <v-col
+            sm="2"
             xs="6"
         >
           <v-img src="https://via.placeholder.com/180"></v-img>

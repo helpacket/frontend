@@ -73,11 +73,11 @@ router.beforeEach((to, from, next) => {
     ) {
         next({path: "/login", query: {"destination": to.path}})
     } else if (
-        to.path === "/login" && loggedIn
+        (to.path === "/login" || to.path === "/") && loggedIn
     ) {
         let destination = to.query.destination
         if (destination === undefined) {
-            destination = "/"
+            destination = "/transactions"
         }
         next({path: destination})
     } else {

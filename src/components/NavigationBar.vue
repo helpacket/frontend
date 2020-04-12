@@ -1,111 +1,214 @@
 <template>
-  <v-app-bar dense light fixed>
-    <v-btn
-        text
-        color="secondary"
-        @click="goHome">
-      <img class="logo" src="@/assets/icon_logo.png" alt="logo">
-      <v-toolbar-title>
-        {{this.titleMessage}}
-      </v-toolbar-title>
-    </v-btn>
-    <v-spacer></v-spacer>
-    <div v-if="!isLoggedIn()">
+  <div>
+    <v-navigation-drawer
+        v-if="isLoggedIn()"
+        v-model="this.drawer"
+        clipped app
+    >
+      <v-list>
+        <v-list-item
+            @click="goNewSupply"
+        >
+          <v-list-item-action>
+            <v-icon
+                color="primary"
+            >
+              fas fa-arrow-alt-circle-up
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{this.supplyMessage}}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+            @click="goNewRequest"
+        >
+          <v-list-item-action>
+            <v-icon
+                color="secondary"
+            >
+              fas fa-arrow-alt-circle-down
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{this.requestMessage}}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+            @click="goTransactions"
+        >
+          <v-list-item-action>
+            <v-icon
+                color="secondary"
+            >
+              fas fa-history
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>
+              {{this.transactionsMessage}}
+            </v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item
+            @click="goStatistics"
+        >
+          <v-list-item-action>
+            <v-icon
+                color="secondary"
+            >
+              fas fa-chart-pie
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+
+            <v-btn
+                text
+                color="secondary"
+            >
+              {{this.analyticsMessage}}
+            </v-btn>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar
+        app
+        dense
+        fixed
+        clipped-left
+        class="elevation-1"
+    >
+      <v-app-bar-nav-icon
+          v-if="isLoggedIn()"
+          @click.stop="drawer = !drawer"/>
+
       <v-btn
-          @click="goLogin"
+          text
           color="secondary"
-          text
-          v-if="!inLogin()"
-          class="ma-2 white--text"
-      >
-        {{this.loginMessage}}
+          @click="goHome">
+        <img class="logo" src="@/assets/icon_logo.png" alt="logo">
+        <v-toolbar-title>
+          {{this.titleMessage}}
+        </v-toolbar-title>
       </v-btn>
-      <v-btn
-          v-if="!inJoin()"
-          @click="goJoin"
-          text
-          color="primary"
-          class="ma-2 white--text"
-      >
-        {{this.joinMessage}}
-      </v-btn>
-    </div>
-    <div v-else>
-      <v-btn
-          text
-          color="primary"
-          class="ma-2 white--text"
-          @click="goNewSupply"
-      >
-        {{this.supplyMessage}}
-        <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
-      </v-btn>
-      <v-btn
-          text
-          color="secondary"
-          class="ma-2 white--text"
-          @click="goNewRequest"
-      >
-        {{this.requestMessage}}
-        <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
-      </v-btn>
-      <v-btn
-          text
-          color="secondary"
-          class="ma-2 white--text"
-          @click="goTransactions"
-      >
-        {{this.transactionsMessage}}
-        <v-icon right dark>fas fa-history</v-icon>
-      </v-btn>
-      <v-btn
-          text
-          color="secondary"
-          class="ma-2 white--text"
-          @click="goStatistics"
-      >
-        {{this.analyticsMessage}}
-        <v-icon right dark>fas fa-chart-pie</v-icon>
-      </v-btn>
-      <v-menu
-          left
-          bottom
-      >
-        <template v-slot:activator="{ on }">
-          <v-btn
+      <v-spacer></v-spacer>
+      <div v-if="!isLoggedIn()">
+        <v-btn
+            @click="goLogin"
+            color="secondary"
+            text
+            class="ma-2 hidden-sm-and-down"
+        >
+          {{this.loginMessage}}
+        </v-btn>
+        <v-btn
+            @click="goJoin"
+            text
+            color="primary"
+            class="ma-2 hidden-sm-and-down"
+        >
+          {{this.joinMessage}}
+        </v-btn>
+        <div>
+
+        </div>
+        <v-menu
+            left
+            bottom
+        >
+          <template v-slot:activator="{ on }">
+            <v-btn
+                class="hidden-md-and-up"
+                color="secondary"
+                dark
+                icon
+                v-on="on"
+            >
+              <v-icon
+              >
+                fas fa-ellipsis-v
+              </v-icon>
+            </v-btn>
+          </template>
+
+          <v-list
               color="secondary"
               dark
-              icon
-              v-on="on"
           >
-            <v-icon>fa-user-circle</v-icon>
-          </v-btn>
-        </template>
-
-        <v-list
+            <v-list-item
+                @click="goLogin"
+            >
+              <v-list-item-title>
+                {{this.loginMessage}}
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item
+                @click="goJoin"
+            >
+              <v-list-item-title>
+                {{this.joinMessage}}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
+      <div v-else>
+        <v-btn
+            @click="goHome"
+            text
             color="secondary"
-            dark
+            class="ma-2 hidden-sm-and-down"
         >
-          <v-list-item
-              @click="goTransactions"
+          <v-icon left>fas fa-user-circle</v-icon>
+            {{ this.humanizedUser() }}
+        </v-btn>
+        <v-menu
+            left
+            bottom
+        >
+          <template v-slot:activator="{ on }">
+            <v-btn
+                color="secondary"
+                dark
+                icon
+                v-on="on"
+            >
+              <v-icon>fas fa-ellipsis-v</v-icon>
+            </v-btn>
+          </template>
+
+          <v-list
+              color="secondary"
+              dark
           >
-            <v-list-item-title>
-              <v-icon left>fas fa-user-circle</v-icon>
-              {{ this.humanizedUser() }}
-            </v-list-item-title>
-          </v-list-item>
-          <v-list-item
-              @click="logout"
-          >
-            <v-list-item-title>
-              <v-icon left>fas fa-sign-out-alt</v-icon>
-              {{this.logOutMessage}}
-            </v-list-item-title>
-          </v-list-item>
-        </v-list>
-      </v-menu>
-    </div>
-  </v-app-bar>
+            <v-list-item
+                @click="goHome"
+                class="hidden-md-and-up"
+            >
+              <v-list-item-title>
+                <v-icon left>fas fa-user-circle</v-icon>
+                {{ this.humanizedUser() }}
+              </v-list-item-title>
+            </v-list-item>
+            <v-list-item
+                @click="logout"
+            >
+              <v-list-item-title>
+                <v-icon left>fas fa-sign-out-alt</v-icon>
+                {{this.logOutMessage}}
+              </v-list-item-title>
+            </v-list-item>
+          </v-list>
+        </v-menu>
+      </div>
+    </v-app-bar>
+  </div>
 </template>
 
 
@@ -119,12 +222,13 @@
                 titleMessage: "Helpacket",
                 transactionsMessage: "Historial",
                 analyticsMessage: "Analíticas",
-                logOutMessage: "Cerrar Sessión",
+                logOutMessage: "Cerrar Sesión",
                 supplyMessage: "Ofrecer",
                 requestMessage: "Solicitar",
                 loginMessage: "Iniciar Sesión",
                 joinMessage: "Registrarme",
-                people: {}
+                people: {},
+                drawer: null,
             }
         },
         apollo: {
@@ -214,6 +318,11 @@
                     this.$router.push('/join');
                 }
             },
+        },
+        mounted() {
+            window.console.log(window.innerWidth)
+            this.drawer = (window.innerWidth > 1024);
         }
+
     };
 </script>

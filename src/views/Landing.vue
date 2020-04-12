@@ -50,8 +50,8 @@
           </v-row>
           <v-row style="padding-top: 36px">
             <v-col
-                offset-sm="4"
-                sm="4"
+                offset-sm="3"
+                sm="6"
             >
               <v-btn
                   color="grey"
@@ -139,6 +139,22 @@
             <p class="text-justify">
               {{this.loremIpsumMessage}}
             </p>
+            <v-row>
+              <v-col
+                  sm="6"
+                  offset-sm="3"
+              >
+
+                <v-btn
+                    align-center
+                    block
+                    color="primary"
+                >
+                  {{this.videoLinkMessage}}
+                  <v-icon right dark>fas fa-video</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </div>
@@ -178,8 +194,8 @@
                     block
                     color="primary"
                 >
-                  {{this.analyticsLinkMessage}}
-                  <v-icon right dark>fas fa-chart-pie</v-icon>
+                  {{this.helpFromHomeLinkMessage}}
+                  <v-icon right dark>fas fa-tools</v-icon>
                 </v-btn>
               </v-col>
             </v-row>
@@ -274,9 +290,11 @@
           </v-col>
         </v-row>
         <v-row>
-          <h2 style="padding-top: 36px;">Sanitarios colaboradores</h2>
-          Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés
-          Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife
+          <v-col>
+            <h2 style="padding-top: 36px;">Sanitarios colaboradores</h2>
+            Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés<br/>
+            Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife
+          </v-col>
         </v-row>
       </div>
       <div class="second-view">
@@ -347,6 +365,8 @@
             return {
                 descriptionMessage: "Plataforma colaborativa contra el coronavirus",
                 analyticsLinkMessage: "Ver Analíticas",
+                helpFromHomeLinkMessage: "Guía de Fabricación",
+                videoLinkMessage: "Ir al video",
                 supplyMessage: "Ofrecer",
                 requestMessage: "Solicitar",
                 moreInfoMessage: "Más Información",

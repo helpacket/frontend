@@ -59,12 +59,12 @@
         <v-icon right dark>fas fa-history</v-icon>
       </v-btn>
       <v-btn
-              text
-              color="secondary"
-              class="ma-2 white--text"
-              @click="goStatistics"
+          text
+          color="secondary"
+          class="ma-2 white--text"
+          @click="goStatistics"
       >
-        Analíticas
+        {{this.analyticsMessage}}
         <v-icon right dark>fas fa-chart-pie</v-icon>
       </v-btn>
       <v-menu
@@ -72,11 +72,20 @@
           bottom
       >
         <template v-slot:activator="{ on }">
-          <v-btn icon v-on="on">
-            <v-icon>mdi-dots-vertical</v-icon>
+          <v-btn
+              color="secondary"
+              dark
+              icon
+              v-on="on"
+          >
+            <v-icon>fa-user-circle</v-icon>
           </v-btn>
         </template>
-        <v-list>
+
+        <v-list
+            color="secondary"
+            dark
+        >
           <v-list-item
               @click="goTransactions"
           >
@@ -109,6 +118,7 @@
             return {
                 titleMessage: "Helpacket",
                 transactionsMessage: "Historial",
+                analyticsMessage: "Analíticas",
                 logOutMessage: "Cerrar Sessión",
                 supplyMessage: "Ofrecer",
                 requestMessage: "Solicitar",

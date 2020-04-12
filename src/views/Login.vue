@@ -21,8 +21,72 @@
             >
               <v-toolbar-title>Inicio de Sesión</v-toolbar-title>
             </v-toolbar>
+            <v-card-title class="primary--text">PROBAR DEMO SIN REGISTRO</v-card-title>
             <v-card-text>
+              Si quieres probar Helpacket sin tener que registrarte, selecciona uno de los usuarios preconfigurados.
+            </v-card-text>
+            <v-card-actions class="py-0">
+              <v-row align="center" justify="center">
+                <v-col cols="12" sm="6">
+                  <v-btn
+                          v-on:click="demoParticular"
+                          color="secondary"
+                          dark
+                          block
+                  >
+                    Particular
+                  </v-btn>
+                </v-col>
 
+                <v-col cols="12" sm="6">
+                  <v-btn
+                          v-on:click="demoEmpresa"
+                          color="secondary"
+                          dark
+                          block
+                  >
+                    Empresa
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-card-actions>
+
+            <v-card-actions class="py-0">
+              <v-row
+                      align="center"
+                      justify="center"
+              >
+                <v-col
+                        cols="12"
+                        sm="6"
+                >
+                  <v-btn
+                          v-on:click="demoResidencia"
+                          color="secondary"
+                          dark
+                          block
+                  >
+                    Residencia
+                  </v-btn>
+                </v-col>
+
+                <v-col
+                        cols="12"
+                        sm="6"
+                >
+                  <v-btn
+                          v-on:click="demoHospital"
+                          color="secondary"
+                          dark
+                          block
+                  >
+                    Hospital
+                  </v-btn>
+                </v-col>
+              </v-row>
+            </v-card-actions>
+            <v-divider class="mx-4"></v-divider>
+            <v-card-text>
               <v-text-field
                   @keyup.enter="submit"
                   label="Nombre de Usuario"
@@ -48,81 +112,6 @@
                 Iniciar Sesión
               </v-btn>
             </v-card-actions>
-            <v-divider class="mx-4"></v-divider>
-            <v-card-title class="primary--text">Probar sin registro</v-card-title>
-            <v-card-text>
-              Si quieres probar Helpacket sin tener que registrarte, selecciona uno de los usuarios preconfigurados.
-            </v-card-text>
-            <v-card-actions>
-              <v-row
-                  align="center"
-                  justify="center"
-              >
-                <v-col
-                    cols="12"
-                    sm="6"
-                >
-                  <v-btn
-                      v-on:click="demoParticular"
-                      color="secondary"
-                      dark
-                      block
-                  >
-                    Particular
-                  </v-btn>
-                </v-col>
-
-                <v-col
-                    cols="12"
-                    sm="6"
-                >
-                  <v-btn
-                      v-on:click="demoEmpresa"
-                      color="secondary"
-                      dark
-                      block
-                  >
-                    Empresa
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-card-actions>
-
-            <v-card-actions>
-              <v-row
-                  align="center"
-                  justify="center"
-              >
-                <v-col
-                    cols="12"
-                    sm="6"
-                >
-                  <v-btn
-                      v-on:click="demoResidencia"
-                      color="secondary"
-                      dark
-                      block
-                  >
-                    Residencia
-                  </v-btn>
-                </v-col>
-
-                <v-col
-                    cols="12"
-                    sm="6"
-                >
-                  <v-btn
-                      v-on:click="demoHospital"
-                      color="secondary"
-                      dark
-                      block
-                  >
-                    Hospital
-                  </v-btn>
-                </v-col>
-              </v-row>
-            </v-card-actions>
-
           </v-form>
         </v-card>
       </v-col>

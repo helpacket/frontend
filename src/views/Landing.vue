@@ -149,6 +149,8 @@
                     align-center
                     block
                     color="primary"
+                    :href="this.youtubeVideoLink"
+                    target="_blank"
                 >
                   {{this.videoLinkMessage}}
                   <v-icon right dark>fas fa-video</v-icon>
@@ -297,8 +299,11 @@
         <v-row>
           <v-col>
             <h2 style="padding-top: 36px;">Sanitarios colaboradores</h2>
-            Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés<br/>
-            Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife
+
+            <p class="text-justify">
+              Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés<br/>
+              Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife
+            </p>
           </v-col>
         </v-row>
       </div>
@@ -319,43 +324,33 @@
             <p class="text-justify">
               {{this.loremIpsumMessage}}
             </p>
+            <p class="text-justify">
+              {{this.loremIpsumMessage}}
+            </p>
+            <v-row>
+              <v-col
+                  sm="6"
+                  offset-sm="3"
+              >
+
+                <v-btn
+                    align-center
+                    block
+                    color="primary"
+                    :href="this.emailHRef()"
+                    target="_blank"
+                >
+                  {{this.contactWithUsLinkMessage}}
+                  <v-icon right dark>fas fa-envelope</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-col>
           <v-col
-              cols="12"
               sm="6"
               xs="12"
           >
-            <v-card><v-toolbar
-                color="secondary"
-                dark
-                flat
-            >
-              <v-toolbar-title>Formulario de Contacto</v-toolbar-title>
-            </v-toolbar>
-              <v-card-text>
-                <v-form>
-                  <v-text-field
-                      label="Correo Electrónico"
-                      name="username"
-                      type="text"
-                  />
-                  <v-textarea
-                      @keyup.enter="submit"
-                      label="Message"
-                  />
-                </v-form>
-              </v-card-text>
-              <v-card-actions>
-                <v-spacer/>
-                <v-btn
-                    v-on:click="submit"
-                    color="primary"
-                    dark
-                >
-                  Enviar
-                </v-btn>
-              </v-card-actions>
-            </v-card>
+            <v-img src="https://via.placeholder.com/480x360"></v-img>
           </v-col>
         </v-row>
       </div>
@@ -371,11 +366,14 @@
                 descriptionMessage: "Plataforma colaborativa contra el coronavirus",
                 analyticsLinkMessage: "Ver Analíticas",
                 helpFromHomeLinkMessage: "Guía de Fabricación",
+                contactWithUsLinkMessage: "Enviar Email",
                 videoLinkMessage: "Ir al video",
                 supplyMessage: "Ofrecer",
                 requestMessage: "Solicitar",
                 moreInfoMessage: "Más Información",
-                loremIpsumMessage: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+                loremIpsumMessage: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+                email: "helpacket@gmail.com",
+                youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
             }
         },
         methods: {
@@ -397,6 +395,9 @@
                         behavior: "smooth"
                     });
                 }
+            },
+            emailHRef() {
+                return "mailto:" + this.email;
             }
         }
     };

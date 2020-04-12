@@ -225,7 +225,7 @@
                 loginMessage: "Iniciar Sesión",
                 joinMessage: "Registrarme",
                 people: {},
-                drawer: false,
+                drawer: null,
             }
         },
         apollo: {
@@ -331,10 +331,6 @@
                     this.toggleDrawer();
                 }
             }
-        },
-        mounted() {
-            window.console.log(window.innerWidth)
-            this.drawer = (window.innerWidth > 1024);
         }
     };
 </script>

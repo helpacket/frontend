@@ -35,7 +35,7 @@
     <div v-else>
       <v-btn
           text
-          color="red darken-4"
+          color="primary"
           class="ma-2 white--text"
           @click="goNewSupply"
       >
@@ -44,7 +44,7 @@
       </v-btn>
       <v-btn
           text
-          color="blue-grey"
+          color="secondary"
           class="ma-2 white--text"
           @click="goNewRequest"
       >
@@ -53,7 +53,7 @@
       </v-btn>
       <v-btn
           text
-          color="blue-grey"
+          color="secondary"
           class="ma-2 white--text"
           @click="goTransactions"
       >
@@ -62,7 +62,7 @@
       </v-btn>
       <v-btn
               text
-              color="blue-grey"
+              color="secondary"
               class="ma-2 white--text"
               @click="goStatistics"
       >

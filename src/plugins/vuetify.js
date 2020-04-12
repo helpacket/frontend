@@ -11,7 +11,8 @@ export const vuetify = new Vuetify({
     theme: {
         themes: {
             light: {
-                primary: '#B71C1C',
+                primary: '#B1002D',
+                secondary: '#447269'
             },
         },
     }

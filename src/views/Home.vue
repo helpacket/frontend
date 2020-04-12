@@ -13,7 +13,7 @@
     <v-row>
       <v-col align="right">
         <v-btn
-            color="red darken-4"
+            color="primary"
             class="ma-2 white--text"
             @click="addSupply"
             x-large
@@ -25,7 +25,7 @@
       <v-col>
         <v-btn
             align="left"
-            color="blue-grey"
+            color="secondary"
             class="ma-2 white--text"
             @click="addRequest"
             x-large

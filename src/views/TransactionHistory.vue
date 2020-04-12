@@ -12,8 +12,8 @@
               :items-per-page="10"
           >
             <template v-slot:item.icon="{ item }">
-              <v-icon v-if="item.icon === 'request'" right dark color="red">fas fa-long-arrow-alt-left</v-icon>
-              <v-icon v-else right dark color="green">fas fa-long-arrow-alt-right</v-icon>
+              <v-icon v-if="item.icon === 'request'" right dark color="secondary">fas fa-arrow-alt-circle-down</v-icon>
+              <v-icon v-else right dark color="primary">fas fa-arrow-alt-circle-up</v-icon>
             </template>
             <template v-slot:item.status="{ item }">
               <v-chip :color="STATUS_COLOR[item.status]" dark>{{ STATUS_TEXT[item.status] }}</v-chip>

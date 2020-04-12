@@ -16,8 +16,9 @@
             color="red darken-4"
             class="ma-2 white--text"
             @click="addSupply"
+            x-large
         >
-          Doy mascarillas
+          OFRECER
           <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
         </v-btn>
       </v-col>
@@ -27,8 +28,9 @@
             color="blue-grey"
             class="ma-2 white--text"
             @click="addRequest"
+            x-large
         >
-          Quiero mascarillas
+          SOLICITAR
           <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
         </v-btn>
       </v-col>
@@ -41,7 +43,7 @@
         name: "Home",
         methods: {
             addSupply: function () {
-                this.$router.push('/statistics');
+                this.$router.push('/supplies/new');
             },
             addRequest: function () {
                 this.$router.push('/requests/new');

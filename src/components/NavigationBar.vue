@@ -37,7 +37,7 @@
           text
           color="red darken-4"
           class="ma-2 white--text"
-          @click="goStatistics"
+          @click="goNewSupply"
       >
         Ofrecer
         <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
@@ -59,6 +59,15 @@
       >
         Historial
         <v-icon right dark>fas fa-history</v-icon>
+      </v-btn>
+      <v-btn
+              text
+              color="blue-grey"
+              class="ma-2 white--text"
+              @click="goStatistics"
+      >
+        Analíticas
+        <v-icon right dark>fas fa-chart-pie</v-icon>
       </v-btn>
       <v-menu
           left
@@ -168,6 +177,11 @@
             goNewRequest: function () {
                 if (!this.inNewRequest()) {
                     this.$router.push('/requests/new');
+                }
+            },
+            goNewSupply: function () {
+                if (!this.inNewRequest()) {
+                    this.$router.push('/supplies/new');
                 }
             },
             goTransactions: function () {

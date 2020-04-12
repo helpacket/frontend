@@ -407,7 +407,7 @@
                 if (el) {
                     let headerOffset = 48;
                     let elementPosition = el.getBoundingClientRect().top;
-                    let offsetPosition = elementPosition - headerOffset;
+                    let offsetPosition = elementPosition - headerOffset + window.scrollY;
 
                     window.scrollTo({
                         top: offsetPosition,

@@ -55,7 +55,7 @@
           </v-list-item-content>
         </v-list-item>
         <v-list-item
-            @click="goStatistics"
+            @click="goAnalytics"
         >
           <v-list-item-action>
             <v-icon
@@ -258,8 +258,8 @@
             inNewSupply() {
                 return this.$route.path === "/supplies/new"
             },
-            inStatistics() {
-                return this.$route.path === "/statistics"
+            inAnalytics() {
+                return this.$route.path === "/analytics"
             },
             inTransactions() {
                 return this.$route.path === "/transactions"
@@ -278,45 +278,62 @@
                 } else {
                     this.goLanding();
                 }
+                this.toggleDrawerMobile()
             },
             goLanding: function () {
                 if (this.$route.path !== '/') {
                     this.$router.push('/');
                 }
+                this.toggleDrawerMobile()
             },
-            goStatistics: function () {
-                if (!this.inStatistics()) {
-                    this.$router.push('/statistics');
+            goAnalytics: function () {
+                if (!this.inAnalytics()) {
+                    this.$router.push('/analytics');
                 }
+                this.toggleDrawerMobile()
             },
             goNewRequest: function () {
                 if (!this.inNewRequest()) {
                     this.$router.push('/requests/new');
                 }
+                this.toggleDrawerMobile()
             },
             goNewSupply: function () {
                 if (!this.inNewSupply()) {
                     this.$router.push('/supplies/new');
                 }
+                this.toggleDrawerMobile()
             },
             goTransactions: function () {
                 if (!this.inTransactions()) {
                     this.$router.push('/transactions');
                 }
+                this.toggleDrawerMobile()
             },
             goLogin: function () {
                 if (!this.inLogin()) {
                     this.$router.push('/login');
                 }
+                this.toggleDrawerMobile()
             },
             goJoin: function () {
                 if (!this.inJoin()) {
                     this.$router.push('/join');
                 }
+                this.toggleDrawerMobile()
             },
             toggleDrawer(){
                 this.drawer = !this.drawer;
+            },
+            toggleDrawerMobile() {
+                if (window.innerWidth < 1024) {
+                    this.toggleDrawer();
+                }
             }
+        },
+        mounted() {
+            window.console.log(window.innerWidth)
+            this.drawer = (window.innerWidth > 1024);
         }
     };
 </script>

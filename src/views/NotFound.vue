@@ -60,8 +60,8 @@
             goLanding: function () {
                 this.$router.push('/');
             },
-            goStatistics: function () {
-                this.$router.push('/statistics');
+            goAnalytics: function () {
+                this.$router.push('/analytics');
             },
             goNewRequest: function () {
                 this.$router.push('/requests/new');

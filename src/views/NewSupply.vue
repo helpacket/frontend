@@ -35,7 +35,7 @@
     import {CREATE_SUPPLY, PRODUCT_QUERY} from "../apis/constants";
 
     export default {
-        name: "SupplyForm",
+        name: "NewSupply",
         data() {
             return {
                 supply: {},

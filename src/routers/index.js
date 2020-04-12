@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Landing from '../views/Landing.vue'
-import RequestForm from "../views/RequestForm";
-import SupplyForm from "../views/SupplyForm";
+import NewRequest from "../views/NewRequest";
+import NewSupply from "../views/NewSupply";
 import TransactionHistory from "../views/TransactionHistory";
-import Statistics from "../views/Statistics"
+import Analytics from "../views/Analytics"
 import Login from "../views/Login";
 import Join from "../views/Join";
 import NotFound from "../views/NotFound"
@@ -28,14 +28,14 @@ const routes = [
     },
     {
         path: '/requests/new',
-        component: RequestForm,
+        component: NewRequest,
         meta: {
             requiresAuth: true
         }
     },
     {
         path: '/supplies/new',
-        component: SupplyForm,
+        component: NewSupply,
         meta: {
             requiresAuth: true
         }
@@ -48,8 +48,8 @@ const routes = [
         }
     },
     {
-        path: '/statistics',
-        component: Statistics,
+        path: '/analytics',
+        component: Analytics,
         meta: {
             requiresAuth: true
         }

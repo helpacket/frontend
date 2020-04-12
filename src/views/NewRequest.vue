@@ -34,7 +34,7 @@
     import {CREATE_REQUEST, PRODUCT_QUERY} from "../apis/constants";
 
     export default {
-        name: "RequestForm",
+        name: "NewRequest",
         data() {
             return {
                 request: {},

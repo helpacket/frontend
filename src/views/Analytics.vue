@@ -20,7 +20,7 @@
     // import PruebaChart2 from "../components/dashboard/PruebaChart2";
 
     export default {
-        name: "Statistics",
+        name: "Analytics",
         // components: {PruebaChart2, PruebaChartJs, GeneralNeeds },
         methods: {
             addSupply: function () {

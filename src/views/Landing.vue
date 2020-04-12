@@ -158,7 +158,7 @@
                     target="_blank"
                 >
                   {{this.videoLinkMessage}}
-                  <v-icon right dark>fas fa-video</v-icon>
+                  <v-icon right dark>fab fa-youtube</v-icon>
                 </v-btn>
               </v-col>
             </v-row>
@@ -232,7 +232,7 @@
               <v-img class="white--text align-end"
                      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                      height="200px"
-                     :src="item.imageURL"></v-img>
+                     :src="item.imageUrl"></v-img>
 
               <v-card-title>{{item.name}}</v-card-title>
               <v-card-subtitle>{{item.position}}</v-card-subtitle>
@@ -344,52 +344,52 @@
                     {
                         "name": "Alberto Amigo",
                         "position": "Software Engineer",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "Carlos Carrillo",
                         "position": "Departamento de Aduanas de DB Schenker , Estudiante de Transporte y Logística en UCJC",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "Hugo de Castro",
                         "position": "Proyectos Globales de DB Schenker , Estudiante de Transporte y Logística en UCJC\n",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "Jose Ramón Fernández",
                         "position": "Técnico Logístico de Wottoline , Estudiante de Transporte y Logística en UCJC",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "Oscar Fernández",
                         "position": "Software Engineer en Unlimiteck",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "Sergio García",
                         "position": "Software Engineer & Data Scientist en Unlimiteck",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "David Moreno",
                         "position": "Decano de la Facultad de Tecnología y Ciencias en la UCJC",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "Juan Príncipe",
                         "position": "Copywriter creativo en la agencia publicitaria C&W",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "Jose Manuel Villa",
                         "position": "Ex – Director de Canales Digitales en BBVA",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                     {
                         "name": "Rafael Villa",
                         "position": "Director de Logística del Metro de Madrid y profesor de la UCJC",
-                        "imageURL": "https://via.placeholder.com/180"
+                        "imageUrl": "https://via.placeholder.com/180"
                     },
                 ]
             }

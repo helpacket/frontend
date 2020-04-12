@@ -75,7 +75,7 @@
           <v-col
               xs="12"
           >
-            <h1>Analíticas de Demanda</h1>
+            <h1>{{this.analyticsHeader}}</h1>
           </v-col>
         </v-row>
         <v-row>
@@ -90,10 +90,7 @@
               xs="12"
           >
             <p class="text-justify">
-              {{this.loremIpsumMessage}}
-            </p>
-            <p class="text-justify">
-              {{this.loremIpsumMessage}}
+              {{this.analyticsMessage}}
             </p>
             <v-row>
               <v-col
@@ -119,7 +116,7 @@
           <v-col
               xs="12"
           >
-            <h1>¿Qué es Helpacket?</h1>
+            <h1>{{this.whatIsHeader}}</h1>
           </v-col>
         </v-row>
         <v-row>
@@ -145,10 +142,7 @@
               order-sm="1"
           >
             <p class="text-justify">
-              {{this.loremIpsumMessage}}
-            </p>
-            <p class="text-justify">
-              {{this.loremIpsumMessage}}
+              {{this.whatIsMessage}}
             </p>
             <v-row>
               <v-col
@@ -176,7 +170,7 @@
           <v-col
               xs="12"
           >
-            <h1>¿Cómo puedes ayudar desde casa?</h1>
+            <h1>{{this.helpFromHomeHeader}}</h1>
           </v-col>
         </v-row>
         <v-row>
@@ -191,10 +185,7 @@
               xs="12"
           >
             <p class="text-justify">
-              {{this.loremIpsumMessage}}
-            </p>
-            <p class="text-justify">
-              {{this.loremIpsumMessage}}
+              {{this.helpFromHomeMessage}}
             </p>
             <v-row>
               <v-col
@@ -220,16 +211,16 @@
           <v-col
               xs="12"
           >
-            <h1>¿Quiénes somos?</h1>
+            <h1>{{this.aboutUsHeader}}</h1>
           </v-col>
         </v-row>
         <v-row>
           <p class="text-justify">
-            {{this.loremIpsumMessage}}
+            {{this.aboutUsMessage}}
           </p>
         </v-row>
         <v-row>
-          <h2>Miembros del Equipo</h2>
+          <h2>{{this.aboutUsTeamSubHeader}}</h2>
         </v-row>
         <v-row>
           <v-col
@@ -309,11 +300,9 @@
         </v-row>
         <v-row>
           <v-col>
-            <h2 style="padding-top: 36px;">Sanitarios colaboradores</h2>
-
+            <h2 style="padding-top: 36px;">{{this.aboutUsColabSubHeader}}</h2>
             <p class="text-justify">
-              Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés<br/>
-              Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife
+              {{this.aboutUsColabMessage}}
             </p>
           </v-col>
         </v-row>
@@ -323,7 +312,7 @@
             xs="12"
         >
           <v-col>
-            <h1>Contacta con Nosotros</h1>
+            <h1>{{this.contactHeader}}</h1>
           </v-col>
         </v-row>
         <v-row>
@@ -333,10 +322,7 @@
               xs="12"
           >
             <p class="text-justify">
-              {{this.loremIpsumMessage}}
-            </p>
-            <p class="text-justify">
-              {{this.loremIpsumMessage}}
+              {{this.contactMessage}}
             </p>
             <v-row>
               <v-col
@@ -382,10 +368,22 @@
                 supplyMessage: "Ofrecer",
                 requestMessage: "Solicitar",
                 moreInfoMessage: "Más Información",
-                loremIpsumMessage: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
                 email: "helpacket@gmail.com",
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
-                yotutubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0"
+                yotutubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",
+                analyticsHeader: "Analíticas de Demanda",
+                analyticsMessage: "Aquí puedes ver los productos más necesarios en cada momento, así podrás planificar tu producción en función a las necesidades actuales.\nEstos datos los podemos analizar gracias a tener la demanda centralizada de Hospitales, residencias y grupos más desfavorecidos que piden el material a través de nuestra plataforma.",
+                whatIsHeader: "¿Qué es Helpacket?",
+                whatIsMessage: "Helpacket es una plataforma colaborativa que aglutina, por un lado, la oferta de material sanitario y EPIs de empresas y particulares y, por otro, las necesidades de estos materiales para las Instituciones Sanitarias, Residencias y colectivos más desfavorecidos. La plataforma, que es gestionada por la Administración competente, suministra las peticiones de las instituciones teniendo en cuenta diversos criterios evaluados",
+                helpFromHomeHeader: "¿Cómo puedes ayudar desde casa?",
+                helpFromHomeMessage: "Aquí encontrarás una guía de tutoriales y videos donde te enseñarán a fabricar cualquier tipo de material necesario.\nCada granito cuenta.",
+                aboutUsHeader: "¿Quiénes somos?",
+                aboutUsMessage: "La comunidad de Madrid propuso un Hackatón para descubrir e impulsar iniciativas que ayudarán en la crisis del Coronavirus, en este momento nos juntamos un equipo multidisciplinar en el que, con profesionales de logística, comunicación e informática, nos presentamos al concurso de la comunidad de Madrid en el que salimos finalistas, ahora ¡Cada vez estamos más cerca de hacerlo realidad!",
+                aboutUsTeamSubHeader: "Miembros del Equipo",
+                aboutUsColabSubHeader: "Sanitarios colaboradores",
+                aboutUsColabMessage: "Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés\nPaloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife",
+                contactHeader: "Contacta con Nosotros",
+                contactMessage: "Si quieres ayudar, si tienes alguna idea que podría ayudar a esta plataforma, si quieres colaborar o aunque solo quieras saludar, no dudes en contactarnos en:",
             }
         },
         methods: {
@@ -423,11 +421,13 @@
   .second-view {
     padding-bottom: 10vh;
   }
+
   .video-container {
     position: relative;
     width: 100%;
     padding-bottom: 56.25%;
   }
+
   .video {
     position: absolute;
     top: 0;

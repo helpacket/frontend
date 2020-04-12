@@ -258,9 +258,16 @@
         </v-row>
         <v-row>
           <v-col
+              sm="6"
+              order-sm="2"
+          >
+            <v-img src="https://via.placeholder.com/480x360"></v-img>
+          </v-col>
+          <v-col
               cols="12"
               sm="6"
               xs="12"
+              order-sm="1"
           >
             <p class="text-justify" v-for="row in this.contactMessage" :key="row">
               {{row}}
@@ -283,12 +290,6 @@
                 </v-btn>
               </v-col>
             </v-row>
-          </v-col>
-          <v-col
-              sm="6"
-              xs="12"
-          >
-            <v-img src="https://via.placeholder.com/480x360"></v-img>
           </v-col>
         </v-row>
       </div>

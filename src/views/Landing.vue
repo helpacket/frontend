@@ -384,6 +384,54 @@
                 aboutUsColabMessage: "Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés\nPaloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife",
                 contactHeader: "Contacta con Nosotros",
                 contactMessage: "Si quieres ayudar, si tienes alguna idea que podría ayudar a esta plataforma, si quieres colaborar o aunque solo quieras saludar, no dudes en contactarnos en:",
+                team: [
+                    {"name": "Alberto Amigo", "position": "Software Engineer", "imageURL": ""},
+                    {
+                        "name": "Carlos Carrillo",
+                        "position": "Departamento de Aduanas de DB Schenker , Estudiante de Transporte y Logística en UCJC",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                    {
+                        "name": "Hugo de Castro",
+                        "position": "Proyectos Globales de DB Schenker , Estudiante de Transporte y Logística en UCJC\n",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                    {
+                        "name": "Jose Ramón Fernández",
+                        "position": "Técnico Logístico de Wottoline , Estudiante de Transporte y Logística en UCJC",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                    {
+                        "name": "Oscar Fernández",
+                        "position": "Software Engineer & Data Scientist en Unlimiteck",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                    {
+                        "name": "Sergio García",
+                        "position": "Software Engineer & Data Scientist en Unlimiteck",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                    {
+                        "name": "David Moreno",
+                        "position": "Decano de la Facultad de Tecnología y Ciencias en la UCJC",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                    {
+                        "name": "Juan Príncipe",
+                        "position": "Copywriter creativo en la agencia publicitaria C&W",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                    {
+                        "name": "Jose Manuel Villa",
+                        "position": "Ex – Director de Canales Digitales en BBVA",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                    {
+                        "name": "Rafael Villa",
+                        "position": "Director de Logística del Metro de Madrid y profesor de la UCJC",
+                        "imageURL": "https://via.placeholder.com/180"
+                    },
+                ]
             }
         },
         methods: {

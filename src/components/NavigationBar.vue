@@ -17,7 +17,7 @@
             </v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>
+            <v-list-item-title class="primary--text">
               {{this.supplyMessage}}
             </v-list-item-title>
           </v-list-item-content>
@@ -33,7 +33,7 @@
             </v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>
+            <v-list-item-title class="secondary--text">
               {{this.requestMessage}}
             </v-list-item-title>
           </v-list-item-content>
@@ -49,7 +49,7 @@
             </v-icon>
           </v-list-item-action>
           <v-list-item-content>
-            <v-list-item-title>
+            <v-list-item-title class="secondary--text">
               {{this.transactionsMessage}}
             </v-list-item-title>
           </v-list-item-content>
@@ -65,13 +65,9 @@
             </v-icon>
           </v-list-item-action>
           <v-list-item-content>
-
-            <v-btn
-                text
-                color="secondary"
-            >
+            <v-list-item-title class="secondary--text">
               {{this.analyticsMessage}}
-            </v-btn>
+            </v-list-item-title>
           </v-list-item-content>
         </v-list-item>
       </v-list>
@@ -86,7 +82,7 @@
     >
       <v-app-bar-nav-icon
           v-if="isLoggedIn()"
-          @click.stop="drawer = !drawer"/>
+          @click="toggleDrawer"/>
 
       <v-btn
           text
@@ -103,7 +99,7 @@
             @click="goLogin"
             color="secondary"
             text
-            class="ma-2 hidden-sm-and-down"
+            class="ma-2 hidden-xs-only"
         >
           {{this.loginMessage}}
         </v-btn>
@@ -111,7 +107,7 @@
             @click="goJoin"
             text
             color="primary"
-            class="ma-2 hidden-sm-and-down"
+            class="ma-2 hidden-xs-only"
         >
           {{this.joinMessage}}
         </v-btn>
@@ -124,7 +120,7 @@
         >
           <template v-slot:activator="{ on }">
             <v-btn
-                class="hidden-md-and-up"
+                class="hidden-sm-and-up"
                 color="secondary"
                 dark
                 icon
@@ -228,7 +224,7 @@
                 loginMessage: "Iniciar Sesión",
                 joinMessage: "Registrarme",
                 people: {},
-                drawer: null,
+                drawer: false,
             }
         },
         apollo: {
@@ -299,7 +295,7 @@
                 }
             },
             goNewSupply: function () {
-                if (!this.inNewRequest()) {
+                if (!this.inNewSupply()) {
                     this.$router.push('/supplies/new');
                 }
             },
@@ -318,11 +314,9 @@
                     this.$router.push('/join');
                 }
             },
-        },
-        mounted() {
-            window.console.log(window.innerWidth)
-            this.drawer = (window.innerWidth > 1024);
+            toggleDrawer(){
+                this.drawer = !this.drawer;
+            }
         }
-
     };
 </script>

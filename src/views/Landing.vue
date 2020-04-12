@@ -83,7 +83,7 @@
               sm="6"
               xs="12"
           >
-            <v-img src="https://via.placeholder.com/480x360"></v-img>
+            <v-img :src="analyticsImageUrl"></v-img>
           </v-col>
           <v-col
               sm="6"
@@ -178,7 +178,7 @@
               sm="6"
               xs="12"
           >
-            <v-img src="https://via.placeholder.com/480x360"></v-img>
+            <v-img :src="helpFromHomeImageUrl"></v-img>
           </v-col>
           <v-col
               sm="6"
@@ -242,9 +242,11 @@
         <v-row>
           <v-col>
             <h2 style="padding-top: 36px; padding-bottom: 12px;">{{this.aboutUsColabSubHeader}}</h2>
-            <p class="text-justify" v-for="row in this.aboutUsColabMessage" :key="row">
-              {{row}}
-            </p>
+            <ul>
+              <li v-for="row in this.aboutUsColabMessage" :key="row">
+                {{row}}
+              </li>
+            </ul>
           </v-col>
         </v-row>
       </div>
@@ -261,7 +263,7 @@
               sm="6"
               order-sm="2"
           >
-            <v-img src="https://via.placeholder.com/480x360"></v-img>
+            <v-img :src="contactImageUrl"></v-img>
           </v-col>
           <v-col
               cols="12"
@@ -314,6 +316,7 @@
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
                 yotutubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",
                 analyticsHeader: "Analíticas de Demanda",
+                analyticsImageUrl: "https://via.placeholder.com/480x280",
                 analyticsMessage: [
                     "Aquí puedes ver los productos más necesarios en cada momento, así podrás planificar tu producción en función a las necesidades actuales.",
                     "Estos datos los podemos analizar gracias a tener la demanda centralizada de Hospitales, residencias y grupos más desfavorecidos que piden el material a través de nuestra plataforma."
@@ -323,6 +326,7 @@
                     "Helpacket es una plataforma colaborativa que aglutina, por un lado, la oferta de material sanitario y EPIs de empresas y particulares y, por otro, las necesidades de estos materiales para las Instituciones Sanitarias, Residencias y colectivos más desfavorecidos. La plataforma, que es gestionada por la Administración competente, suministra las peticiones de las instituciones teniendo en cuenta diversos criterios evaluados",
                 ],
                 helpFromHomeHeader: "¿Cómo puedo ayudar desde casa?",
+                helpFromHomeImageUrl: "https://via.placeholder.com/480x280",
                 helpFromHomeMessage: [
                     "Aquí encontrarás una guía de tutoriales y videos donde te enseñarán a fabricar cualquier tipo de material necesario.",
                     "Cada granito cuenta."]
@@ -338,6 +342,7 @@
                     "Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife",
                 ],
                 contactHeader: "Contacta con Nosotros",
+                contactImageUrl: "https://via.placeholder.com/480x280",
                 contactMessage: [
                     "Si quieres ayudar, si tienes alguna idea que podría ayudar a esta plataforma, si quieres colaborar o aunque solo quieras saludar, no dudes en contactarnos a traves de:",
                 ],
@@ -354,7 +359,7 @@
                     },
                     {
                         "name": "Hugo de Castro",
-                        "position": "Proyectos Globales de DB Schenker , Estudiante de Transporte y Logística en UCJC\n",
+                        "position": "Proyectos Globales de DB Schenker , Estudiante de Transporte y Logística en UCJC",
                         "imageUrl": "https://via.placeholder.com/180"
                     },
                     {

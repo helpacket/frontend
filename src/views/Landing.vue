@@ -119,7 +119,7 @@
           <v-col
               xs="12"
           >
-            <h1>¿Qué es Hellpacket?</h1>
+            <h1>¿Qué es Helpacket?</h1>
           </v-col>
         </v-row>
         <v-row>
@@ -211,7 +211,12 @@
           </v-col>
         </v-row>
         <v-row>
-          <h2 style="padding-top: 36px;">Equipo</h2>
+          <p class="text-justify">
+            {{this.loremIpsumMessage}}
+          </p>
+        </v-row>
+        <v-row>
+          <h2>Miembros del Equipo</h2>
         </v-row>
         <v-row>
           <v-col
@@ -302,7 +307,7 @@
             xs="12"
         >
           <v-col>
-            <h1>Contact</h1>
+            <h1>Contacta con Nosotros</h1>
           </v-col>
         </v-row>
         <v-row>

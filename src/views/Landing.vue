@@ -21,24 +21,26 @@
             </v-col>
           </v-row>
           <v-row>
-            <v-col>
+            <v-col
+                sm="6"
+                xs="12"
+            >
               <v-btn
                   color="primary"
                   @click="addSupply"
-                  sm="6"
-                  xs="12"
                   block
               >
                 {{this.supplyMessage}}
                 <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
               </v-btn>
             </v-col>
-            <v-col>
+            <v-col
+                sm="6"
+                xs="12"
+            >
               <v-btn
                   color="secondary"
                   @click="addRequest"
-                  sm="6"
-                  xs="12"
                   block
               >
                 {{this.requestMessage}}
@@ -46,14 +48,17 @@
               </v-btn>
             </v-col>
           </v-row>
-          <v-row>
-            <v-col>
+          <v-row style="padding-top: 36px">
+            <v-col
+                offset-sm="4"
+                sm="4"
+            >
               <v-btn
                   color="grey"
                   @click="goMoreInfo"
-                  offset-sm="3"
-                  sm="6"
                   block
+                  class="white--text"
+
               >
                 {{this.moreInfoMessage}}
                 <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
@@ -90,6 +95,22 @@
             <p class="text-justify">
               {{this.loremIpsumMessage}}
             </p>
+            <v-row>
+              <v-col
+                  sm="6"
+                  offset-sm="3"
+              >
+
+                <v-btn
+                    align-center
+                    block
+                    color="primary"
+                >
+                  {{this.analyticsLinkMessage}}
+                  <v-icon right dark>fas fa-chart-pie</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
           </v-col>
         </v-row>
       </div>
@@ -98,7 +119,7 @@
           <v-col
               xs="12"
           >
-            <h1>Explanation</h1>
+            <h1>¿Qué es Hellpacket?</h1>
           </v-col>
         </v-row>
         <v-row>
@@ -126,8 +147,55 @@
           <v-col
               xs="12"
           >
-            <h1>Team</h1>
+            <h1>¿Cómo puedes ayudar desde casa?</h1>
           </v-col>
+        </v-row>
+        <v-row>
+          <v-col
+              sm="6"
+              xs="12"
+          >
+            <v-img src="https://via.placeholder.com/480x360"></v-img>
+          </v-col>
+          <v-col
+              sm="6"
+              xs="12"
+          >
+            <p class="text-justify">
+              {{this.loremIpsumMessage}}
+            </p>
+            <p class="text-justify">
+              {{this.loremIpsumMessage}}
+            </p>
+            <v-row>
+              <v-col
+                  sm="6"
+                  offset-sm="3"
+              >
+
+                <v-btn
+                    align-center
+                    block
+                    color="primary"
+                >
+                  {{this.analyticsLinkMessage}}
+                  <v-icon right dark>fas fa-chart-pie</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </div>
+      <div class="second-view">
+        <v-row>
+          <v-col
+              xs="12"
+          >
+            <h1>¿Quiénes somos?</h1>
+          </v-col>
+        </v-row>
+        <v-row>
+          <h2 style="padding-top: 36px;">Equipo</h2>
         </v-row>
         <v-row>
           <v-col
@@ -204,6 +272,11 @@
             <v-img src="https://via.placeholder.com/180"></v-img>
             Pepito Perez
           </v-col>
+        </v-row>
+        <v-row>
+          <h2 style="padding-top: 36px;">Sanitarios colaboradores</h2>
+          Jose Antonio Carrillo: Doctor Residente en el Hospital Severo Ochoa de Leganés
+          Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife
         </v-row>
       </div>
       <div class="second-view">
@@ -229,7 +302,13 @@
               sm="6"
               xs="12"
           >
-            <v-card>
+            <v-card><v-toolbar
+                color="secondary"
+                dark
+                flat
+            >
+              <v-toolbar-title>Formulario de Contacto</v-toolbar-title>
+            </v-toolbar>
               <v-card-text>
                 <v-form>
                   <v-text-field
@@ -243,6 +322,16 @@
                   />
                 </v-form>
               </v-card-text>
+              <v-card-actions>
+                <v-spacer/>
+                <v-btn
+                    v-on:click="submit"
+                    color="primary"
+                    dark
+                >
+                  Enviar
+                </v-btn>
+              </v-card-actions>
             </v-card>
           </v-col>
         </v-row>
@@ -257,6 +346,7 @@
         data() {
             return {
                 descriptionMessage: "Plataforma colaborativa contra el coronavirus",
+                analyticsLinkMessage: "Ver Analíticas",
                 supplyMessage: "Ofrecer",
                 requestMessage: "Solicitar",
                 moreInfoMessage: "Más Información",
@@ -275,7 +365,7 @@
                 if (el) {
                     let headerOffset = 48;
                     let elementPosition = el.getBoundingClientRect().top;
-                    let offsetPosition = elementPosition - headerOffset ;
+                    let offsetPosition = elementPosition - headerOffset;
 
                     window.scrollTo({
                         top: offsetPosition,
@@ -289,7 +379,7 @@
 
 <style scoped>
   .first-view {
-    min-height: 90vh;
+    min-height: 100vh;
   }
 
   .second-view {

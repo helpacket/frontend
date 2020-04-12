@@ -2,7 +2,7 @@
   <v-app-bar dense light fixed>
     <v-btn
         text
-        color="blue-grey"
+        color="secondary"
         @click="goHome">
       <img class="logo" src="@/assets/icon_logo.png" alt="logo">
       <v-toolbar-title>
@@ -13,7 +13,7 @@
     <div v-if="!isLoggedIn()">
       <v-btn
           @click="goLogin"
-          color="blue-grey"
+          color="secondary"
           text
           v-if="!inLogin()"
           class="ma-2 white--text"
@@ -24,7 +24,7 @@
           v-if="!inJoin()"
           @click="goJoin"
           text
-          color="red darken-4"
+          color="primary"
           class="ma-2 white--text"
       >
         {{this.joinMessage}}
@@ -33,16 +33,16 @@
     <div v-else>
       <v-btn
           text
-          color="red darken-4"
+          color="primary"
           class="ma-2 white--text"
-          @click="goStatistics"
+          @click="goNewSupply"
       >
         {{this.supplyMessage}}
         <v-icon right dark>fas fa-arrow-alt-circle-up</v-icon>
       </v-btn>
       <v-btn
           text
-          color="blue-grey"
+          color="secondary"
           class="ma-2 white--text"
           @click="goNewRequest"
       >
@@ -51,12 +51,21 @@
       </v-btn>
       <v-btn
           text
-          color="blue-grey"
+          color="secondary"
           class="ma-2 white--text"
           @click="goTransactions"
       >
         {{this.transactionsMessage}}
         <v-icon right dark>fas fa-history</v-icon>
+      </v-btn>
+      <v-btn
+              text
+              color="secondary"
+              class="ma-2 white--text"
+              @click="goStatistics"
+      >
+        Analíticas
+        <v-icon right dark>fas fa-chart-pie</v-icon>
       </v-btn>
       <v-menu
           left
@@ -173,6 +182,11 @@
             goNewRequest: function () {
                 if (!this.inNewRequest()) {
                     this.$router.push('/requests/new');
+                }
+            },
+            goNewSupply: function () {
+                if (!this.inNewRequest()) {
+                    this.$router.push('/supplies/new');
                 }
             },
             goTransactions: function () {

@@ -1,24 +1,27 @@
 <template>
-    <v-container justify="center">
-        <v-row justify="center">
-            <v-card width="90%" justify="center">
-                <v-card-title class="pb-2">
-                    Necesidades en Madrid
-                </v-card-title>
-                <v-card-text class="pb-2">
-                    Aquí graficas
-                </v-card-text>
-                <v-card-actions>
-                    <v-btn justify="right" color="white--text red darken-4" @click="addSupply">Añadir donación</v-btn>
-                </v-card-actions>
-            </v-card>
+    <v-container justify="center" dense>
+        <v-row dense justify="center" height="300">
+<!--            <v-col cols="8">-->
+<!--                <PruebaChartJs></PruebaChartJs>-->
+<!--            </v-col>-->
+<!--            <v-col cols="4">-->
+<!--                <PruebaChart2></PruebaChart2>-->
+<!--            </v-col>-->
+<!--            <v-col cols="8">-->
+<!--                <GeneralNeeds></GeneralNeeds>-->
+<!--            </v-col>-->
         </v-row>
     </v-container>
 </template>
 
 <script>
+    // import GeneralNeeds from "../components/dashboard/GeneralNeeds"
+    // import PruebaChartJs from "../components/dashboard/PruebaChartJs";
+    // import PruebaChart2 from "../components/dashboard/PruebaChart2";
+
     export default {
         name: "Statistics",
+        // components: {PruebaChart2, PruebaChartJs, GeneralNeeds },
         methods: {
             addSupply: function () {
                 this.$router.push('/supplies/new');

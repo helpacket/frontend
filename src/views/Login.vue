@@ -15,7 +15,7 @@
         <v-card class="elevation-12">
           <v-form>
             <v-toolbar
-                color="blue-grey"
+                color="secondary"
                 dark
                 flat
             >
@@ -42,7 +42,7 @@
               <v-spacer/>
               <v-btn
                   v-on:click="submit"
-                  color="red darken-4"
+                  color="primary"
                   dark
               >
                 Iniciar Sesión
@@ -64,7 +64,7 @@
                 >
                   <v-btn
                       v-on:click="demoParticular"
-                      color="blue-grey"
+                      color="secondary"
                       dark
                       block
                   >
@@ -78,7 +78,7 @@
                 >
                   <v-btn
                       v-on:click="demoEmpresa"
-                      color="blue-grey"
+                      color="secondary"
                       dark
                       block
                   >
@@ -99,7 +99,7 @@
                 >
                   <v-btn
                       v-on:click="demoResidencia"
-                      color="blue-grey"
+                      color="secondary"
                       dark
                       block
                   >
@@ -113,7 +113,7 @@
                 >
                   <v-btn
                       v-on:click="demoHospital"
-                      color="blue-grey"
+                      color="secondary"
                       dark
                       block
                   >

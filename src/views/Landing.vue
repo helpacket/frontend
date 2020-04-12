@@ -16,7 +16,7 @@
       <v-row>
         <v-col align="right">
           <v-btn
-              color="red darken-4"
+              color="primary"
               class="ma-2 white--text"
               @click="addSupply"
           >
@@ -27,7 +27,7 @@
         <v-col>
           <v-btn
               align="left"
-              color="blue-grey"
+              color="secondary"
               class="ma-2 white--text"
               @click="addRequest"
           >
@@ -152,14 +152,14 @@
         data() {
             return {
                 descriptionMessage: "Plataforma colaborativa contra el coronavirus",
-                supplyMessage: "Doy mascarillas",
-                requestMessage: "Quiero mascarillas",
+                supplyMessage: "Ofrecer",
+                requestMessage: "Solicitar",
                 loremIpsumMessage: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
             }
         },
         methods: {
             addSupply: function () {
-                this.$router.push('/statistics');
+                this.$router.push('/supplies/new');
             },
             addRequest: function () {
                 this.$router.push('/requests/new');

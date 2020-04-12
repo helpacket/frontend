@@ -2,8 +2,9 @@
   <div>
     <v-navigation-drawer
         v-if="isLoggedIn()"
-        v-model="this.drawer"
-        clipped app
+        v-model="drawer"
+        clipped
+        app
     >
       <v-list>
         <v-list-item

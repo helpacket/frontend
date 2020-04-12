@@ -15,6 +15,7 @@
             v-for="item in icons"
             :key="item"
             :href="item.url"
+            target="_blank"
             class="mx-4 white--text"
             icon
         >

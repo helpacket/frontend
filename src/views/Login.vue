@@ -48,10 +48,10 @@
                 Iniciar Sesión
               </v-btn>
             </v-card-actions>
+            <v-divider class="mx-4"></v-divider>
+            <v-card-title class="primary--text">Probar sin registro</v-card-title>
             <v-card-text>
-              <h2>
-                Demo
-              </h2>
+              Si quieres probar Helpacket sin tener que registrarte, selecciona uno de los usuarios preconfigurados.
             </v-card-text>
             <v-card-actions>
               <v-row

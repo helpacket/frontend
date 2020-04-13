@@ -22,12 +22,12 @@
           </v-row>
           <v-row>
             <v-col
-                sm="6"
+                md="6"
                 xs="12"
             >
               <v-btn
                   color="primary"
-                  @click="addSupply"
+                  @click="goNewSupply"
                   block
               >
                 {{this.supplyMessage}}
@@ -35,12 +35,12 @@
               </v-btn>
             </v-col>
             <v-col
-                sm="6"
+                md="6"
                 xs="12"
             >
               <v-btn
                   color="secondary"
-                  @click="addRequest"
+                  @click="goNewRequest"
                   block
               >
                 {{this.requestMessage}}
@@ -54,11 +54,11 @@
                 sm="6"
             >
               <v-btn
+                  v-if="withMoreInfo"
                   color="grey"
                   @click="goMoreInfo"
                   block
                   class="white--text"
-
               >
                 {{this.moreInfoMessage}}
                 <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
@@ -69,7 +69,60 @@
       </v-row>
     </div>
     <div id="information">
+      <div class="second-view">
+        <v-row>
+          <v-col
+              xs="12"
+          >
+            <h1>{{this.whatIsHeader}}</h1>
+          </v-col>
+        </v-row>
+        <v-row>
+          <v-col
+              cols="12"
+              sm="6"
+              xs="12"
+              order-sm="2"
+          >
+            <div class="video-container">
 
+              <iframe
+                  class="video"
+                  :src="this.youtubeVideoEmbed"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+              ></iframe>
+            </div>
+          </v-col>
+          <v-col
+              sm="6"
+              order-sm="1"
+          >
+            <p class="text-justify" v-for="row in this.whatIsMessage" :key="row">
+              {{row}}
+            </p>
+            <v-row>
+              <v-col
+                  sm="6"
+                  offset-sm="3"
+              >
+
+                <v-btn
+                    align-center
+                    block
+                    color="primary"
+                    :href="this.youtubeVideoLink"
+                    target="_blank"
+                >
+                  {{this.videoLinkMessage}}
+                  <v-icon right dark>fab fa-youtube</v-icon>
+                </v-btn>
+              </v-col>
+            </v-row>
+          </v-col>
+        </v-row>
+      </div>
       <div class="second-view">
         <v-row>
           <v-col
@@ -102,6 +155,7 @@
                     align-center
                     block
                     color="primary"
+                    @click="goAnalytics"
                 >
                   {{this.analyticsLinkMessage}}
                   <v-icon right dark>fas fa-chart-pie</v-icon>
@@ -116,7 +170,7 @@
           <v-col
               xs="12"
           >
-            <h1>{{this.whatIsHeader}}</h1>
+            <h1>{{this.algorithmHeader}}</h1>
           </v-col>
         </v-row>
         <v-row>
@@ -126,42 +180,15 @@
               xs="12"
               order-sm="2"
           >
-            <div class="video-container">
-
-              <iframe
-                  class="video"
-                  :src="this.yotutubeVideoEmbed"
-                  frameborder="0"
-                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen
-              ></iframe>
-            </div>
+            <v-img :src="this.algorithmImageUrl"></v-img>
           </v-col>
           <v-col
               sm="6"
               order-sm="1"
           >
-            <p class="text-justify" v-for="row in this.whatIsMessage" :key="row">
+            <p class="text-justify" v-for="row in this.algorithmMessage" :key="row">
               {{row}}
             </p>
-            <v-row>
-              <v-col
-                  sm="6"
-                  offset-sm="3"
-              >
-
-                <v-btn
-                    align-center
-                    block
-                    color="primary"
-                    :href="this.youtubeVideoLink"
-                    target="_blank"
-                >
-                  {{this.videoLinkMessage}}
-                  <v-icon right dark>fab fa-youtube</v-icon>
-                </v-btn>
-              </v-col>
-            </v-row>
           </v-col>
         </v-row>
       </div>
@@ -227,16 +254,19 @@
           </v-col>
         </v-row>
         <v-row justify="center">
-          <v-col v-for="(item, index) in this.team" v-bind:key="index"
-                 sm="3"
-                 xs="6"
-                 class="d-flex flex-column"
+          <v-col
+              v-for="(item, index) in this.team" v-bind:key="index"
+              md="3"
+              sm="4"
+              cols="6"
+              class="d-flex flex-column"
           >
             <v-card class="flex flex-column">
               <v-img class="white--text align-end"
                      gradient="to bottom, rgba(0,0,0,.1), rgba(0,0,0,.5)"
                      height="200px"
-                     :src="item.imageUrl"></v-img>
+                     :src="item.imageUrl"
+              ></v-img>
 
               <v-card-title>{{item.name}}</v-card-title>
               <v-card-subtitle>{{item.position}}</v-card-subtitle>
@@ -291,7 +321,7 @@
                     :href="this.emailHRef()"
                     target="_blank"
                 >
-                  {{this.contactWithUsLinkMessage}}
+                  {{this.email}}
                   <v-icon right dark>fas fa-envelope</v-icon>
                 </v-btn>
               </v-col>
@@ -311,26 +341,31 @@
                 descriptionMessage: "Plataforma colaborativa contra el coronavirus",
                 analyticsLinkMessage: "Ver Analíticas",
                 helpFromHomeLinkMessage: "Guía de Fabricación",
-                contactWithUsLinkMessage: "Enviar Email",
                 videoLinkMessage: "Ir al video",
                 supplyMessage: "Ofrecer material",
                 requestMessage: "Solicitar material",
                 moreInfoMessage: "Más Información",
+                withMoreInfo: false,
                 email: "helpacket@gmail.com",
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
-                yotutubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",
-                analyticsHeader: "Analíticas de Demanda",
-                analyticsImageUrl: "https://via.placeholder.com/480x280",
+                youtubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",
+                analyticsHeader: "Análisis de Demanda",
+                analyticsImageUrl: require("@/assets/landing/analytics.png"),
                 analyticsMessage: [
                     "Aquí puedes ver los productos más necesarios en cada momento, así podrás planificar tu producción en función a las necesidades actuales.",
                     "Estos datos los podemos analizar gracias a tener la demanda centralizada de Hospitales, residencias y grupos más desfavorecidos que piden el material a través de nuestra plataforma."
                 ],
+                algorithmHeader: "Priorizamos la Urgencia",
+                algorithmMessage: [
+                    "Optimizamos la gestión de los materiales para asegurarnos de que lleguen donde más se necesita. Con la colaboración conjunta de los organismos competentes, informáticos y expertos en logística, automatizamos la asignación de materiales según las necesidades de los solicitantes.",
+                ],
+                algorithmImageUrl: require("@/assets/landing/algorithm.png"),
                 whatIsHeader: "¿Qué es Helpacket?",
                 whatIsMessage: [
-                    "Helpacket es una plataforma colaborativa que aglutina, por un lado, la oferta de material sanitario y EPIs de empresas y particulares y, por otro, las necesidades de estos materiales para las Instituciones Sanitarias, Residencias y colectivos más desfavorecidos. La plataforma, que es gestionada por la Administración competente, suministra las peticiones de las instituciones teniendo en cuenta diversos criterios evaluados",
+                    "Helpacket es una plataforma colaborativa que aglutina, por un lado, la oferta de material sanitario y EPIs de empresas y particulares y, por otro, las necesidades de estos materiales para las Instituciones Sanitarias, Residencias y colectivos más desfavorecidos. La plataforma, que es gestionada por la Administración competente, suministra las peticiones de las instituciones teniendo en cuenta diversos criterios evaluados.",
                 ],
                 helpFromHomeHeader: "¿Cómo puedo ayudar desde casa?",
-                helpFromHomeImageUrl: "https://via.placeholder.com/480x280",
+                helpFromHomeImageUrl: require("@/assets/landing/help-from-home.png"),
                 helpFromHomeMessage: [
                     "Aquí encontrarás una guía de tutoriales y videos donde te enseñarán a fabricar cualquier tipo de material necesario.",
                     "Cada granito cuenta."]
@@ -346,7 +381,7 @@
                     "Paloma Sillero: Enfermera de urgencias en el Hospital Nuestra Señora de la Candelaria de Tenerife",
                 ],
                 contactHeader: "Contacta con Nosotros",
-                contactImageUrl: "https://via.placeholder.com/480x280",
+                contactImageUrl: require("@/assets/landing/contact.png"),
                 contactMessage: [
                     "Si quieres ayudar, si tienes alguna idea que podría ayudar a esta plataforma, si quieres colaborar o aunque solo quieras saludar, no dudes en contactarnos a traves de:",
                 ],
@@ -354,61 +389,61 @@
                     {
                         "name": "Alberto Amigo",
                         "position": "Software Engineer",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/alberto-amigo.jpeg"),
                     },
                     {
                         "name": "Carlos Carrillo",
                         "position": "Departamento de Aduanas de DB Schenker , Estudiante de Transporte y Logística en UCJC",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/carlos-carrillo.jpg"),
                     },
                     {
                         "name": "Hugo de Castro",
                         "position": "Proyectos Globales de DB Schenker , Estudiante de Transporte y Logística en UCJC",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/hugo-decastro.jpeg"),
                     },
                     {
                         "name": "Jose Ramón Fernández",
                         "position": "Técnico Logístico de Wottoline , Estudiante de Transporte y Logística en UCJC",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/joseramon-fernandez.jpg"),
                     },
                     {
                         "name": "Oscar Fernández",
                         "position": "Software Engineer en Unlimiteck",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/oscar-fernandez.jpeg"),
                     },
                     {
                         "name": "Sergio García",
                         "position": "Software Engineer & Data Scientist en Unlimiteck",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/sergio-garcia.jpg"),
                     },
                     {
                         "name": "David Moreno",
                         "position": "Decano de la Facultad de Tecnología y Ciencias en la UCJC",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/david-moreno.png"),
                     },
                     {
                         "name": "Juan Príncipe",
                         "position": "Copywriter creativo en la agencia publicitaria C&W",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/juan-principe.jpeg"),
                     },
                     {
                         "name": "Jose Manuel Villa",
                         "position": "Ex – Director de Canales Digitales en BBVA",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/josemanuel-villa.png"),
                     },
                     {
                         "name": "Rafael Villa",
                         "position": "Director de Logística del Metro de Madrid y profesor de la UCJC",
-                        "imageUrl": "https://via.placeholder.com/180"
+                        "imageUrl": require("@/assets/landing/team/rafael-villa.png"),
                     },
                 ]
             }
         },
         methods: {
-            addSupply: function () {
+            goNewSupply: function () {
                 this.$router.push('/supplies/new');
             },
-            addRequest: function () {
+            goNewRequest: function () {
                 this.$router.push('/requests/new');
             },
             goMoreInfo() {
@@ -423,6 +458,9 @@
                         behavior: "smooth"
                     });
                 }
+            },
+            goAnalytics() {
+                this.$router.push('/analytics');
             },
             emailHRef() {
                 return "mailto:" + this.email;

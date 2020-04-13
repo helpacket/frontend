@@ -23,3 +23,7 @@ img.logo {
   max-height: 360px;
   max-width: 360px;
 }
+
+.v-card__text, .v-card__title {
+  word-break: normal;
+}

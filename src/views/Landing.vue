@@ -22,7 +22,7 @@
           </v-row>
           <v-row>
             <v-col
-                sm="6"
+                md="6"
                 xs="12"
             >
               <v-btn
@@ -35,7 +35,7 @@
               </v-btn>
             </v-col>
             <v-col
-                sm="6"
+                md="6"
                 xs="12"
             >
               <v-btn
@@ -54,11 +54,11 @@
                 sm="6"
             >
               <v-btn
+                  v-if="withMoreInfo"
                   color="grey"
                   @click="goMoreInfo"
                   block
                   class="white--text"
-
               >
                 {{this.moreInfoMessage}}
                 <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
@@ -227,10 +227,12 @@
           </v-col>
         </v-row>
         <v-row justify="center">
-          <v-col v-for="(item, index) in this.team" v-bind:key="index"
-                 sm="3"
-                 xs="6"
-                 class="d-flex flex-column"
+          <v-col
+              v-for="(item, index) in this.team" v-bind:key="index"
+              md="3"
+              sm="4"
+              cols="6"
+              class="d-flex flex-column"
           >
             <v-card class="flex flex-column">
               <v-img class="white--text align-end"
@@ -315,6 +317,7 @@
                 supplyMessage: "Ofrecer material",
                 requestMessage: "Solicitar material",
                 moreInfoMessage: "Más Información",
+                withMoreInfo: false,
                 email: "helpacket@gmail.com",
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
                 youtubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",

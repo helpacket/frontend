@@ -105,6 +105,7 @@
           {{this.loginMessage}}
         </v-btn>
         <v-btn
+            v-if="withJoin"
             @click="goJoin"
             text
             color="primary"
@@ -163,7 +164,7 @@
             class="ma-2 hidden-sm-and-down"
         >
           <v-icon left>fas fa-user-circle</v-icon>
-            {{ this.humanizedUser() }}
+          {{ this.humanizedUser() }}
         </v-btn>
         <v-menu
             left
@@ -225,6 +226,7 @@
                 loginMessage: "Iniciar Sesión",
                 joinMessage: "Registrarme",
                 people: {},
+                withJoin: false,
                 drawer: null,
             }
         },
@@ -323,7 +325,7 @@
                 }
                 this.toggleDrawerMobile()
             },
-            toggleDrawer(){
+            toggleDrawer() {
                 this.drawer = !this.drawer;
             },
             toggleDrawerMobile() {
@@ -331,6 +333,10 @@
                     this.toggleDrawer();
                 }
             }
+        },
+        mounted() {
+            window.console.log(window.innerWidth)
+            this.drawer = (window.innerWidth > 1024);
         }
     };
 </script>

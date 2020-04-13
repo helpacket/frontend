@@ -130,7 +130,7 @@
 
               <iframe
                   class="video"
-                  :src="this.yotutubeVideoEmbed"
+                  :src="this.youtubeVideoEmbed"
                   frameborder="0"
                   allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                   allowfullscreen
@@ -317,7 +317,7 @@
                 moreInfoMessage: "Más Información",
                 email: "helpacket@gmail.com",
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
-                yotutubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",
+                youtubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",
                 analyticsHeader: "Análisis de Demanda",
                 analyticsImageUrl: "https://via.placeholder.com/480x280",
                 analyticsMessage: [

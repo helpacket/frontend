@@ -3,7 +3,7 @@
     <v-row justify="center">
       <v-card width="90%" justify="center">
         <v-card-title class="pb-2">
-          Historial de transacciones
+          {{this.tableHeader}}
         </v-card-title>
         <v-card-text class="pb-2">
           <v-data-table
@@ -32,6 +32,7 @@
         name: "TransactionHistory",
         data() {
             return {
+                tableHeader: "Mi Historial de Transacciones",
                 headers: [
                     {text: '', value: 'icon', align: 'center', sortable: false,},
                     {text: 'Producto', value: 'product_name', align: 'center', sortable: false,},

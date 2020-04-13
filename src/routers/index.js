@@ -50,9 +50,6 @@ const routes = [
     {
         path: '/analytics',
         component: Analytics,
-        meta: {
-            requiresAuth: true
-        }
     },
     {
         path: "*", component: NotFound,

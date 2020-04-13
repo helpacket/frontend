@@ -1,27 +1,41 @@
 <template>
-    <v-container justify="center" dense>
-        <v-row dense justify="center" height="300">
-<!--            <v-col cols="8">-->
-<!--                <PruebaChartJs></PruebaChartJs>-->
-<!--            </v-col>-->
-<!--            <v-col cols="4">-->
-<!--                <PruebaChart2></PruebaChart2>-->
-<!--            </v-col>-->
-<!--            <v-col cols="8">-->
-<!--                <GeneralNeeds></GeneralNeeds>-->
-<!--            </v-col>-->
+    <v-container justify="center" dense fluid>
+        <v-row dense align="stretch">
+            <v-col md="8" sm="12">
+                <LineChartExample></LineChartExample>
+            </v-col>
+            <v-col md="4" sm="12">
+                <BarChartExample></BarChartExample>
+            </v-col>
+        </v-row>
+        <v-row dense align="stretch">
+            <v-col md="3" sm="12">
+                <DoughnutChartRequest></DoughnutChartRequest>
+            </v-col>
+            <v-col md="3" sm="12">
+                <DoughnutChartSupply></DoughnutChartSupply>
+            </v-col>
+            <v-col md="3" sm="12">
+                <PercentajeExampleRed></PercentajeExampleRed>
+            </v-col>
+            <v-col md="3" sm="12">
+                <PercentajeExample></PercentajeExample>
+            </v-col>
         </v-row>
     </v-container>
 </template>
 
 <script>
-    // import GeneralNeeds from "../components/dashboard/GeneralNeeds"
-    // import PruebaChartJs from "../components/dashboard/PruebaChartJs";
-    // import PruebaChart2 from "../components/dashboard/PruebaChart2";
+    import LineChartExample from "../components/dashboard/LineChartExample";
+    import BarChartExample from "../components/dashboard/BarChartExample";
+    import DoughnutChartSupply from "../components/dashboard/DoughnutChartSupply";
+    import DoughnutChartRequest from "../components/dashboard/DoughnutChartRequest";
+    import PercentajeExample from "../components/dashboard/PercentajeExample";
+    import PercentajeExampleRed from "../components/dashboard/PercentajeExampleRed";
 
     export default {
-        name: "Analytics",
-        // components: {PruebaChart2, PruebaChartJs, GeneralNeeds },
+        name: "Statistics",
+        components: {PercentajeExample, BarChartExample, PercentajeExampleRed, LineChartExample, DoughnutChartSupply, DoughnutChartRequest},
         methods: {
             addSupply: function () {
                 this.$router.push('/supplies/new');

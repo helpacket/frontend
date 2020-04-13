@@ -14,7 +14,7 @@
           justify="center"
       >
         <v-card-title class="pb-2">
-          Crear solicitud de material
+          ¿Qué productos deseas solicitar?
         </v-card-title>
         <v-card-text class="pb-2">
           <v-select
@@ -34,7 +34,7 @@
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
-          <v-btn justify="right" color="white--text primary" @click="submit">Crear</v-btn>
+          <v-btn justify="right" color="white--text primary" @click="submit">Solicitar</v-btn>
         </v-card-actions>
       </v-card>
       </v-col>

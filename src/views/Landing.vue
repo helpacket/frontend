@@ -215,14 +215,18 @@
           </v-col>
         </v-row>
         <v-row>
-          <p class="text-justify" v-for="row in this.aboutUsMessage" :key="row">
-            {{row}}
-          </p>
+          <v-col>
+            <p class="text-justify" v-for="row in this.aboutUsMessage" :key="row">
+              {{row}}
+            </p>
+          </v-col>
         </v-row>
         <v-row>
-          <h2>{{this.aboutUsTeamSubHeader}}</h2>
+          <v-col>
+            <h2>{{this.aboutUsTeamSubHeader}}</h2>
+          </v-col>
         </v-row>
-        <v-row>
+        <v-row justify="center">
           <v-col v-for="(item, index) in this.team" v-bind:key="index"
                  sm="3"
                  xs="6"
@@ -308,8 +312,8 @@
                 analyticsLinkMessage: "Ver Analíticas",
                 helpFromHomeLinkMessage: "Guía de Fabricación",
                 videoLinkMessage: "Ir al video",
-                supplyMessage: "Ofrecer",
-                requestMessage: "Solicitar",
+                supplyMessage: "Ofrecer material",
+                requestMessage: "Solicitar material",
                 moreInfoMessage: "Más Información",
                 email: "helpacket@gmail.com",
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",

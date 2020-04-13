@@ -1,5 +1,5 @@
 <template>
-  <v-container justify="center" dense fluid id="statistics">
+  <v-container justify="center" dense fluid>
     <v-row dense align="stretch">
       <v-col md="8" sm="12">
         <LineChartExample></LineChartExample>
@@ -47,19 +47,6 @@
             addSupply: function () {
                 this.$router.push('/supplies/new');
             },
-        },
-        mounted() {
-            const el = document.getElementById("statistics");
-            if (el) {
-                let headerOffset = 48;
-                let elementPosition = el.getBoundingClientRect().top;
-                let offsetPosition = elementPosition - headerOffset + window.scrollY;
-
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
         }
     }
 </script>

@@ -285,3 +285,4 @@ $RECYCLE.BIN/
 *.lnk
 
 # End of https://www.gitignore.io/api/vue,node,vuejs,linux,macos,windows,webstorm
+/dist/

@@ -388,7 +388,7 @@
                 team: [
                     {
                         "name": "Alberto Amigo",
-                        "position": "Software Engineer",
+                        "position": "Software Engineer en Unlimiteck",
                         "imageUrl": require("@/assets/landing/team/alberto-amigo.jpeg"),
                     },
                     {

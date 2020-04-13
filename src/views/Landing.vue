@@ -61,7 +61,7 @@
                   class="white--text"
               >
                 {{this.moreInfoMessage}}
-                <v-icon right dark>fas fa-arrow-alt-circle-down</v-icon>
+                <v-icon right dark>fas fa-info-circle</v-icon>
               </v-btn>
             </v-col>
           </v-row>
@@ -345,7 +345,7 @@
                 supplyMessage: "Ofrecer material",
                 requestMessage: "Solicitar material",
                 moreInfoMessage: "Más Información",
-                withMoreInfo: false,
+                withMoreInfo: true,
                 email: "helpacket@gmail.com",
                 youtubeVideoLink: "https://www.youtube.com/watch?v=ifmzQbGpQZ0",
                 youtubeVideoEmbed: "https://www.youtube.com/embed/ifmzQbGpQZ0",

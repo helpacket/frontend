@@ -1,22 +1,11 @@
-FROM node:9.11.1-alpine
-
-# instalar un simple servidor http para servir nuestro contenido estático
-RUN npm install -g http-server
-
-# hacer la carpeta 'app' el directorio de trabajo actual
+FROM node:latest as build-stage
 WORKDIR /app
-
-# copiar 'package.json' y 'package-lock.json' (si están disponibles)
 COPY package*.json ./
-
-# instalar dependencias del proyecto
 RUN npm install
-
-# copiar los archivos y carpetas del proyecto al directorio de trabajo actual (es decir, la carpeta 'app')
-COPY . .
-
-# construir aplicación para producción minificada
+COPY ./ .
 RUN npm run build
 
-EXPOSE 8080
-CMD [ "http-server", "dist" ]
+FROM nginx as production-stage
+RUN mkdir /app
+COPY --from=build-stage /app/dist /app
+COPY nginx.conf /etc/nginx/nginx.conf

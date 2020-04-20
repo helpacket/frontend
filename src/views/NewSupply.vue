@@ -1,11 +1,6 @@
 <template>
-  <v-container
-      justify="center"
-  >
-    <v-row
-        justify="center"
-    >
-
+  <v-container justify="center">
+    <v-row justify="center">
       <v-col
           cols="12"
           sm="8"
@@ -16,22 +11,26 @@
             ¿Qué productos deseas ofrecer?
           </v-card-title>
           <v-card-text class="pb-2">
-            <v-select
-                v-model="supply.productId"
-                :items="processedProducts"
-                menu-props="auto"
-                label="Producto"
-                @click="refreshProducts"
-                hide-details
-                class="mp-2"
-            ></v-select>
-            <v-text-field
-                v-model="supply.amount"
-                type="number"
-                label="Cantidad"
-                @keyup.enter="submit"
-                single-line
-            ></v-text-field>
+            <v-form ref="form">
+              <v-select
+                  label="Producto"
+                  v-model="supply.productId"
+                  :items="processedProducts"
+                  menu-props="auto"
+                  @click="refreshProducts"
+                  hide-details
+                  class="mp-2"
+                  :rules="productRules"
+              ></v-select>
+              <v-text-field
+                  label="Cantidad"
+                  v-model="supply.amount"
+                  type="number"
+                  @keyup.enter="submit"
+                  single-line
+                  :rules="numberRules"
+              ></v-text-field>
+            </v-form>
           </v-card-text>
           <v-card-actions>
             <v-btn justify="right" color="white--text primary" @click="submit">Ofrecer</v-btn>
@@ -51,6 +50,12 @@
             return {
                 supply: {},
                 products: {},
+                productRules: [
+                  value => !!value || "Es obligatorio seleccionar un producto."
+                ],
+                numberRules: [
+                  value => !!value || "Es obligatorio añadir la cantidad."
+                ]
             }
         },
         apollo: {
@@ -79,17 +84,22 @@
             }
         },
         methods: {
-            submit: function () {
-                this.$apollo.mutate({
-                    mutation: CREATE_SUPPLY,
-                    variables: {
-                        input: this.supply
-                    },
-                }).then(() => {
-                    this.$router.push('/transactions');
-                });
+            submit() {
+              if(!this.$refs.form.validate())
+                return
+
+              this.$apollo.mutate({
+                  mutation: CREATE_SUPPLY,
+                  variables: {
+                      input: this.supply
+                  },
+              }).then(() => {
+                this.$router.push('/transactions')
+              }).catch(() => {
+                window.console.log("ERROOOOR")
+              });
             },
-            refreshProducts: function () {
+            refreshProducts() {
                 this.$apollo.queries.products.refetch();
             }
         },

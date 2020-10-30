@@ -38,7 +38,7 @@
     "font-awesome": "4.7.0",
     "graphql-tag": "^2.9.0",
     "jest": "^25.3.0",
-    "sass": "^1.19.0",
+    "sass": "^1.28.0",
     "sass-loader": "^8.0.0",
     "vue-cli-plugin-apollo": "^0.21.3",
     "vue-cli-plugin-vuetify": "^2.0.2",
